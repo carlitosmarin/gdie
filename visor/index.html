@@ -167,16 +167,17 @@
                                     </div>
 
                                     <div>
+                                        <a id="control-stop" class="btn btn-default"><i class="fa fa-stop"></i></a>
                                         <a id="control-fast-backward" class="btn btn-default"><i class="fa fa-fast-backward"></i></a>
                                         <a id="control-play" class="btn btn-default"><i class="fa fa-play"></i></a>
                                         <a id="control-fast-forward" class="btn btn-default"><i class="fa fa-fast-forward"></i></a>
                                     </div>
 
                                     <div>
-                                        <a id="control-stop" class="btn btn-default"><i class="fa fa-stop"></i></a>
                                         <a id="control-timing" class="btn btn-default" data-toggle="collapse" href="#collapseVelocimeter"><i class="fa fa-tachometer"></i></a>
                                         <a id="control-cc" class="btn btn-default" data-toggle="collapse" href="#collapseLanguage"><i class="fa fa-cc"></i></a>
                                         <a id="control-expand" class="btn btn-default"><i class="fa fa-expand" aria-hidden="true"></i></a>
+                                        <a id="control-screenshot" class="btn btn-default"><i class="fa fa-camera" aria-hidden="true"></i></a>
                                         <div class="collapse" id="collapseVelocimeter">
                                             <div class="well well-sm">
                                                 <a id="control-vel-0" class="btn btn-default" vel='0.5'><i class="fa fa-bicycle" aria-hidden="true"></i></a>
@@ -186,9 +187,58 @@
                                         </div>
                                         <div class="collapse" id="collapseLanguage">
                                             <div class="well well-sm">
-                                                <a id="control-esp" class="btn btn-default active-lan" lan='esp'><span class="flag-icon flag-icon-es"></span></a>
+                                                <a id="control-no-sub" class="btn btn-default active-lan" lan="no-sub"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                                                <a id="control-esp" class="btn btn-default" lan='esp'><span class="flag-icon flag-icon-es"></span></a>
                                                 <a id="control-ru" class="btn btn-default" lan='ru'><span class="flag-icon flag-icon-ru"></span></a>
                                                 <a id="control-eng" class="btn btn-default" lan='eng'><span class="flag-icon flag-icon-gb"></span></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="modal-screenshot" class="modal fade" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <canvas width="500px" height="500px"></canvas>
+                                                </div>
+                                                <div class="row">
+                                                    <div id="screenshots-panel">
+                                                        <figure>
+                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                                            <figcaption>18:37</figcaption>
+                                                        </figure>
+                                                        <figure>
+                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                                            <figcaption>18:37</figcaption>
+                                                        </figure>
+                                                        <figure>
+                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                                            <figcaption>18:37</figcaption>
+                                                        </figure>
+                                                        <figure>
+                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                                            <figcaption>18:37</figcaption>
+                                                        </figure>
+                                                        <figure>
+                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                                            <figcaption>18:37</figcaption>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>Share: </label>
+                                                <a href="">Facebook</a>
+                                                <a href="">Instagram</a>
+                                                <a href="">Twitter</a>
+
+                                                <label>Save</label>
+
                                             </div>
                                         </div>
                                     </div>
@@ -228,14 +278,18 @@
 
                             <h4>Characters</h4>
                             <div id="characters-panel">
-                                <a id="collapserChar-John" onclick="show_char_info(this.id)"><img src="./images/snow.png"></a>
-                                <div class="collapse" id="collapseChar-John">
-                                    <div class="well well-sm char-info">
-                                        <h6>John Snow</h6>
-                                        <p>In A Game of Thrones, Jon Snow is introduced as the 14-year-old bastard son of Eddard "Ned" Stark, Lord of Winterfell,[3][4] and half-brother to Robb, Sansa, Arya, Bran and Rickon</p>
-                                        <a class="btn btn-default btn-sm" href="#"><i class="fa fa-filter"></i> Filter</a>
-                                        <a class="btn btn-default btn-sm" href="#"><i class="fa fa-wikipedia-w"></i> Wikipedia</a>
-                                        <a class="btn btn-default btn-sm" href="#"><i class="fa fa-imdb"></i> IMDb</a>
+                                <a class="modaler" data-char="jon"><img src="./images/snow.png"></a>
+                                <div id="modal-character" class="modal fade" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="well char-info">
+                                                <h6>John Snow</h6>
+                                                <p>In A Game of Thrones, Jon Snow is introduced as the 14-year-old bastard son of Eddard "Ned" Stark, Lord of Winterfell, and half-brother to Robb, Sansa, Arya, Bran and Rickon</p>
+                                                <a class="btn btn-default btn-sm" href="#"><i class="fa fa-filter"></i> Filter</a>
+                                                <a class="btn btn-default btn-sm" href="#"><i class="fa fa-wikipedia-w"></i> Wikipedia</a>
+                                                <a class="btn btn-default btn-sm" href="#"><i class="fa fa-imdb"></i> IMDb</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

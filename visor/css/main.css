@@ -82,21 +82,20 @@ form.form-inline div {
 	cursor: pointer;
 }
 
-#screenshots-panel figure:hover figcaption {
-	top: -19px;
-	opacity: 1;
-}
-
 #screenshots-panel figure figcaption {
 	position: relative;
-	bottom: 10px;
-	top: 0px;
+	bottom: 75px;
 	background-color: black;
 	color: white;
 	padding: 2px 8px;
 	font-size: 11px;
 	opacity: 0;
 	transition: all 0.3s ease-in-out;
+}
+
+#screenshots-panel figure:hover figcaption {
+	bottom: 70px;
+	opacity: 1;
 }
 
 #characters-panel a img {
@@ -381,7 +380,8 @@ video::-webkit-media-controls {
 #collapseVelocimeter div #control-vel-2.active-vel,
 #collapseLanguage div #control-esp.active-lan,
 #collapseLanguage div #control-ru.active-lan,
-#collapseLanguage div #control-eng.active-lan {
+#collapseLanguage div #control-eng.active-lan,
+#collapseLanguage div #control-no-sub.active-lan {
 	border: 1px solid black;
 }
 
@@ -391,8 +391,7 @@ video::-webkit-media-controls {
 }
 
 .char-info {
-	margin-top: 3px;
-	width: 300px;
+
 	word-break: break-word;
 	white-space: normal;
 }

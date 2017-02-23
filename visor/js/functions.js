@@ -110,7 +110,7 @@ function init_video_control () {
 		$('#control-vel-'+($(this).attr('vel') == 0.5 ? '0' : $(this).attr('vel'))).addClass('active-vel');
 	})
 
-	$('#control-esp, #control-ru, #control-eng').click(function () {
+	$('#control-esp, #control-ru, #control-eng, #control-no-sub').click(function () {
 		$('#collapseLanguage .well .btn').removeClass('active-lan');
 		$('#control-'+$(this).attr('lan')).addClass('active-lan');
 	})
@@ -137,7 +137,15 @@ function init_video_control () {
 	});
 
 	$('#video-container').hover(function () {null}, function () {
-		$('.collapse').collapse('hide')
+		$('.collapse').collapse('hide');
+	})
+
+	$('.modaler').click(function () {
+		$('#modal-character').modal('show');
+	})
+
+	$('#control-screenshot').click(function () {
+		$('#modal-screenshot').modal('show');
 	})
 }
 
@@ -155,8 +163,4 @@ function get_normalized_time (totalSeconds) {
 
 function get_normalized_position () {
 	return (video.currentTime / video.duration)*100;
-}
-
-function show_char_info (id) {
-	$('#collapseChar-' + id.split('-')[1]).collapse('toggle');
 }

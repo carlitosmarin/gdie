@@ -38,16 +38,14 @@ el punto anterior.
 Un visor multimedia diseñado y creado por nosotros con el cual se pueda manejar el video
 de la manera mas interactiva posible, pudiendo avanzar a diferentes velocidades, cambiar
 el volumen o el idioma de los subtitulos y poder abrir el video en pantalla completa. 
-Al realizar una captura de pantalla, mostrar un banner en el que se le permita al usuario compartir la captura en
-las principales redes sociales o almacenarla en tu ordenador. Ademas de aplicarle diferentes filtros a las caputras
-de pantalla.
-
+Al realizar una captura de pantalla, mostrar un modal en el que se le permita al usuario 
+compartir la captura en redes sociales, aplicarle filtros o almacenarla en el ordenador. 
 
 Para llevar a cabo esta practica usaremos las tecnologias propias del desarrollo web, en
 este caso: HTML5, CSS3 y Javascript. Ademas se usaran diferentes librerias externas para
 facilitar el desarrollo del proyecto, en este momento, esas tecnologias serian: jQuery,
-jQuery-UI, Bootstrap, Fontawesome.io y Flag-icon-css. Para la transefencia de datos es posible
-que tengamos que usar JSON. 
+jQuery-UI, Bootstrap, Fontawesome.io y Flag-icon-css. Para almacenar informacion de los 
+personajes usaremos JSON.
 
 
 Pre-concepto de User Interface:
