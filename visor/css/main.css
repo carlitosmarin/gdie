@@ -371,7 +371,8 @@ video::-webkit-media-controls {
 
 #collapseVolume,
 #collapseVelocimeter,
-#collapseLanguage {
+#collapseLanguage,
+.char-info {
 	position: fixed;
 }
 
@@ -386,5 +387,16 @@ video::-webkit-media-controls {
 
 #lights-off {
 	font-size: 20px;
+	cursor: pointer;
+}
+
+.char-info {
+	margin-top: 3px;
+	width: 300px;
+	word-break: break-word;
+	white-space: normal;
+}
+
+#characters-panel a {
 	cursor: pointer;
 }

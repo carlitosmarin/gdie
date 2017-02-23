@@ -41,13 +41,9 @@ $(function () {
 		update_character_filter()
 	})
 
-	$('#lights-off').click(function () {
+	$('#lights-off, #turn-off').click(function () {
 		$('#turn-off').toggleClass('lights-on lights-out');
 		$('#lights-off a i').toggleClass('fa-sun-o fa-moon-o')
-	})
-
-	$('#turn-off').click(function () {
-		$('#turn-off').toggleClass('lights-on lights-out');
 	})
 })
 
@@ -143,8 +139,6 @@ function init_video_control () {
 	$('#video-container').hover(function () {null}, function () {
 		$('.collapse').collapse('hide')
 	})
-
-	$('collapserChar-John')
 }
 
 function get_normalized_time (totalSeconds) {
@@ -161,4 +155,8 @@ function get_normalized_time (totalSeconds) {
 
 function get_normalized_position () {
 	return (video.currentTime / video.duration)*100;
+}
+
+function show_char_info (id) {
+	$('#collapseChar-' + id.split('-')[1]).collapse('toggle');
 }
