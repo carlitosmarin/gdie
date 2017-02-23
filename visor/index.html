@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Game of Thrones Visor</title>
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Marin">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="lib/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+    <!-- Fixed navbar
+    ––––––––––––––––––––––––––––––––––––––––––––––––––- -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="./images/logo.png"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li></li>
+                    <li id="lights-off"><a><i class="fa fa-moon-o"></i></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div id="main-content" class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div id="filters" class="col-md-7">
+                            <form class="form">
+                                <div class="col-md-5">
+                                    <label>By house:</label>
+                                    <div id="houses-background">
+                                        <figure>
+                                            <img class="every-house" src="./images/stark.png"/>
+                                            <figcaption>Stark</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img class="every-house" src="./images/lannister.png"/>
+                                            <figcaption>Lannister</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img class="every-house" src="./images/baratheon.png"/>
+                                            <figcaption>Baratheon</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img class="every-house" src="./images/targaryen.png"/>
+                                            <figcaption>Targaryen</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>By content: </label>
+                                            <input type="text" class="form-control" placeholder="Death, Sex, ... " />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <br>
+                                        <div class="col-md-12">
+                                            <label>By places:</label>
+                                            <select class="form-control">
+                                                <option value="none">None</option>
+                                                <option value="winterfell">Winterfell</option>
+                                                <option value="kings-landing">King's Landing</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <label>By character: </label>
+                                            <div id="character-list">
+                                                <figure id="actual-character">
+                                                    <img id="character-filter" src="./images/none.png">
+                                                    <figcaption>None</figcaption>
+                                                </figure>
+                                                <div id="arrows-panel">
+                                                    <a id="left-arrow-char" class="btn btn-default btn-sm character-arrow" href="#"><i class="fa fa-arrow-left"></i></a>
+                                                    <a id="cancel-character" class="btn btn-default btn-sm" href="#"><i class="fa fa-remove"></i></a>
+                                                    <a id="right-arrow-char" class="btn btn-default btn-sm character-arrow" href="#"><i class="fa fa-arrow-right"></i></a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"><button id="filter-btn" type="button"class="btn btn-default pull-right">Filter</button></div>
+                                        <div class="col-md-2"><button id="remove-filter-btn" type="button" class="btn btn-default pull-right hide">No Filter</button></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="scenes-panel" class="col-md-5">
+                            <label>Scenes: </label>
+                            <div id="scenes-list" class="list-group">
+                                <a href="#" class="list-group-item">Cras justo odio</a>
+                                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                                <a href="#" class="list-group-item">Morbi leo risus</a>
+                                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                                <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                <a href="#" class="list-group-item">Cras justo odio</a>
+                                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                                <a href="#" class="list-group-item">Morbi leo risus</a>
+                                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                                <a href="#" class="list-group-item">Vestibulum at eros</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="video-container" class="col-md-7">
+                            <video id="video-tag">
+                                <source src="./media/video.mp4" type="video/mp4" />
+                                <track src="./media/scene-info.vtt" kind="metadata" srclang="en" label="English" />
+                            </video>
+
+                            <div id="video-controls">
+                                <div>
+                                    <div id="video-progress">
+                                        <div id="actual-progress"></div>
+                                    </div>
+                                </div>
+                                <div id="video-buttons">
+                                    <div>
+                                        <a id="control-volume-btn" class="btn btn-default" data-toggle="collapse" href="#collapseVolume"><i class="fa fa-volume-up" aria-hidden="true"></i></a>
+                                        <span class="timer-control"><span id="actual-time">00:00</span>/<span id="duration"></span></span>
+                                        <div class="collapse" id="collapseVolume">
+                                            <div class="well well-sm">
+                                                <a id="control-volume-mute" class="btn btn-default" ><i class="fa fa-ban" aria-hidden="true"></i></a>
+                                                <input id="control-volume-range" type="range" min="0" max="100" value="100">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <a id="control-fast-backward" class="btn btn-default"><i class="fa fa-fast-backward"></i></a>
+                                        <a id="control-play" class="btn btn-default"><i class="fa fa-play"></i></a>
+                                        <a id="control-fast-forward" class="btn btn-default"><i class="fa fa-fast-forward"></i></a>
+                                    </div>
+
+                                    <div>
+                                        <a id="control-stop" class="btn btn-default"><i class="fa fa-stop"></i></a>
+                                        <a id="control-timing" class="btn btn-default" data-toggle="collapse" href="#collapseVelocimeter"><i class="fa fa-tachometer"></i></a>
+                                        <a id="control-cc" class="btn btn-default" data-toggle="collapse" href="#collapseLanguage"><i class="fa fa-cc"></i></a>
+                                        <a id="control-expand" class="btn btn-default"><i class="fa fa-expand" aria-hidden="true"></i></a>
+                                        <div class="collapse" id="collapseVelocimeter">
+                                            <div class="well well-sm">
+                                                <a id="control-vel-0" class="btn btn-default" vel='0.5'><i class="fa fa-bicycle" aria-hidden="true"></i></a>
+                                                <a id="control-vel-1" class="btn btn-default active-vel" vel='1'><i class="fa fa-car" aria-hidden="true"></i></a>
+                                                <a id="control-vel-2" class="btn btn-default" vel='2'><i class="fa fa-fighter-jet" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="collapse" id="collapseLanguage">
+                                            <div class="well well-sm">
+                                                <a id="control-esp" class="btn btn-default active-lan" lan='esp'><span class="flag-icon flag-icon-es"></span></a>
+                                                <a id="control-ru" class="btn btn-default" lan='ru'><span class="flag-icon flag-icon-ru"></span></a>
+                                                <a id="control-eng" class="btn btn-default" lan='eng'><span class="flag-icon flag-icon-gb"></span></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scene information -->
+                        <div id="scene-information-panel" class="col-md-5">
+                            <h4 id="scene-title">Scene</h4>
+                            <p id="scene-description">Description</p>
+                            <h5>Place: <small id="scene-place">Place</small></h5>
+                            <h5>From: <small id="scene-time0">time0</small> - To: <small id="scene-time1">time1</small></h5>
+                            <h4>Screenshots</h4>
+                            <div id="screenshots-panel">
+                                <figure>
+                                    <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                    <figcaption>18:37</figcaption>
+                                </figure>
+                                <figure>
+                                    <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                    <figcaption>18:37</figcaption>
+                                </figure>
+                                <figure>
+                                    <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                    <figcaption>18:37</figcaption>
+                                </figure>
+                                <figure>
+                                    <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                    <figcaption>18:37</figcaption>
+                                </figure>
+                                <figure>
+                                    <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
+                                    <figcaption>18:37</figcaption>
+                                </figure>
+                            </div>
+
+                            <h4>Characters</h4>
+                            <div id="characters-panel">
+                                <a href="" data-toggle="collapse" href="#collapseChar-John"><img src="./images/snow.png"></a>
+                                <div class="collapse" id="collapseChar-John">
+                                    <div class="well well-sm char-info">
+                                        <h3>John Snow</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="panel-tags">
+                                <span>Tags: </span>
+                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-tags"></i> John Snow</a>
+                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-tags"></i> Sex</a>
+                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-tags"></i> Sex</a>
+                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-tags"></i> More sex</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <!-- Player Intro -->
+        <img id="raven-img" src="./images/raven-pause.png">
+    </footer>
+
+    <div id="turn-off" class="lights-out"></div>
+
+    <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="js/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/functions.js"></script>
+</body>
+</html>
