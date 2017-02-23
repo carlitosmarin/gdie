@@ -143,6 +143,8 @@ function init_video_control () {
 	$('#video-container').hover(function () {null}, function () {
 		$('.collapse').collapse('hide')
 	})
+
+	$('collapserChar-John')
 }
 
 function get_normalized_time (totalSeconds) {
