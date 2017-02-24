@@ -198,53 +198,49 @@
                             </div>
                         </div>
                         <div id="modal-screenshot" class="modal fade" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="row">
-                                                    <canvas width="500px" height="500px"></canvas>
-                                                </div>
-                                                <div class="row">
-                                                    <div id="screenshots-panel">
-                                                        <figure>
-                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
-                                                            <figcaption>18:37</figcaption>
-                                                        </figure>
-                                                        <figure>
-                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
-                                                            <figcaption>18:37</figcaption>
-                                                        </figure>
-                                                        <figure>
-                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
-                                                            <figcaption>18:37</figcaption>
-                                                        </figure>
-                                                        <figure>
-                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
-                                                            <figcaption>18:37</figcaption>
-                                                        </figure>
-                                                        <figure>
-                                                            <img class="screenshot" src="./images/screenshot-1-1.jpg"/>
-                                                            <figcaption>18:37</figcaption>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label>Share: </label>
-                                                <a href="">Facebook</a>
-                                                <a href="">Instagram</a>
-                                                <a href="">Twitter</a>
-
-                                                <label>Save</label>
-
-                                            </div>
+                                    <div class="modal-body">
+                                        <h3>Your screenshot</h3>
+                                        <div id="filter-screenshot-intense">
+                                            <canvas id="main-screenshot" width="770" height="490" actual-filter="" actual-value=""></canvas>
+                                            <div id="filter-intense"><div id="custom-handle-filter" class="ui-slider-handle"></div></div>
+                                        </div>
+                                        <div id="screenshots-modal">
+                                            <canvas id="filter-none" class="screenshot" width="110" height="70" data-toggle="tooltip" data-placement="bottom" title="None" value="0"></canvas>
+                                            <canvas id="filter-sepia" class="screenshot" width="110" height="70" data-toggle="tooltip" data-placement="bottom" title="Sepia" value="100"></canvas>
+                                            <canvas id="filter-blur" class="screenshot" width="110" height="70" data-toggle="tooltip" data-placement="bottom" title="Blur" value="2"></canvas>
+                                            <canvas id="filter-grayscale" class="screenshot" width="110" height="70" data-toggle="tooltip" data-placement="bottom" title="Gray-scale" value="100"></canvas>
+                                            <canvas id="filter-invert" class="screenshot" width="110" height="70" data-toggle="tooltip" data-placement="bottom" title="Invert" value="100"></canvas>
+                                            <canvas id="filter-contrast" class="screenshot" width="110" height="70" data-toggle="tooltip" data-placement="bottom" title="Contrast" value="50"></canvas>
+                                        </div>
+                                        <div id="finish-filtering-div">
+                                            <button id="finish-filtering" type="button" class="btn btn-default">Finish</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div id="save-screenshot" class="modal fade" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4>Screenshot done</h4>
+                                    </div>
+                                    <div id="share-in" class="modal-body text-center">
+                                        <a id="save-as-file" class="btn btn-info btn-lg"><i class="fa fa-file-image-o fa-lg"> </i>Save</a>
+                                        <a id="share-on-facebook" class="btn btn-info btn-lg"><i class="fa fa-facebook fa-lg"> </i>Facebook</a>
+                                        <a id="share-on-instagram" class="btn btn-info btn-lg"><i class="fa fa-instagram fa-lg"> </i>Instagram</a>
+                                        <a id="share-on-pinterest" class="btn btn-info btn-lg"><i class="fa fa-pinterest fa-lg"> </i>Pinterest</a>
+                                        <a id="cancel" class="btn btn-danger btn-lg"><i class="fa fa-trash-o fa-lg"> </i>Cancel</a>
+                                        <br>
+                                        <h2 id="feedback-shared"> </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <!-- Scene information -->
                         <div id="scene-information-panel" class="col-md-5">
@@ -282,12 +278,12 @@
                                 <div id="modal-character" class="modal fade" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <div class="well char-info">
+                                            <div class="well char-info center-text">
                                                 <h6>John Snow</h6>
                                                 <p>In A Game of Thrones, Jon Snow is introduced as the 14-year-old bastard son of Eddard "Ned" Stark, Lord of Winterfell, and half-brother to Robb, Sansa, Arya, Bran and Rickon</p>
-                                                <a class="btn btn-default btn-sm" href="#"><i class="fa fa-filter"></i> Filter</a>
-                                                <a class="btn btn-default btn-sm" href="#"><i class="fa fa-wikipedia-w"></i> Wikipedia</a>
-                                                <a class="btn btn-default btn-sm" href="#"><i class="fa fa-imdb"></i> IMDb</a>
+                                                <a class="btn btn-default btn-lg" href="#"><i class="fa fa-filter"></i> Filter</a>
+                                                <a class="btn btn-default btn-lg" href="#"><i class="fa fa-wikipedia-w"></i> Wikipedia</a>
+                                                <a class="btn btn-default btn-lg" href="#"><i class="fa fa-imdb"></i> IMDb</a>
                                             </div>
                                         </div>
                                     </div>

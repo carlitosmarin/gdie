@@ -136,6 +136,25 @@ function init_video_control () {
 		}
 	});
 
+    var handle = $("#custom-handle-filter");
+	$("#filter-intense").slider({
+		orientation: "vertical",
+		range: "min",
+		min: 0,
+		max: 100,
+		create: function() {
+        	handle.text($(this).slider("value"));
+		},
+		slide: function(event, ui) {
+			handle.text(ui.value);
+			var ctx = $('#main-screenshot')[0].getContext('2d');
+			if ($('#main-screenshot').attr('actual-filter') == 'blur') ctx.filter = $('#main-screenshot').attr('actual-filter')+'('+ui.value + 'px)';
+			else ctx.filter = $('#main-screenshot').attr('actual-filter')+'('+ui.value + '%)';
+			ctx.drawImage(video, 0, 0, 770, 490)
+			$('#main-screenshot').attr('actual-value', ui.value)
+		}
+	});
+
 	$('#video-container').hover(function () {null}, function () {
 		$('.collapse').collapse('hide');
 	})
@@ -146,6 +165,52 @@ function init_video_control () {
 
 	$('#control-screenshot').click(function () {
 		$('#modal-screenshot').modal('show');
+	})
+
+	$('#modal-screenshot').on('show.bs.modal', function (e) {
+		if(!video.paused) $('#control-play').click()
+		load_canvas_snapshot()
+	})
+
+	$('#screenshots-modal canvas').click(function () {
+		$('#filter-'+$('#main-screenshot').attr('actual-filter')).attr('value', $('#main-screenshot').attr('actual-value'))
+		var ctx = $('#main-screenshot')[0].getContext('2d');
+		console.log(ctx)
+		if ($(this).attr('id').split('-')[1] == 'none') {
+			ctx.filter =  'none';
+			$("#filter-intense").css('visibility', 'hidden')
+		} else {
+			if ($(this).attr('id').split('-')[1] == 'blur') {
+				ctx.filter = $(this).attr('id').split('-')[1]+'(' + $(this).attr('value') + 'px)';
+				$("#filter-intense").slider("option", "max", 10);
+			} else {
+				ctx.filter = $(this).attr('id').split('-')[1]+'(' + $(this).attr('value') + '%)';
+				$("#filter-intense").slider("option", "max", 100);
+			}
+
+			$("#filter-intense").css('visibility', 'visible')
+			$("#filter-intense").slider('value', $(this).attr('value'))
+			$("#custom-handle-filter").text($(this).attr('value'))
+			$('#main-screenshot').attr('actual-value', $(this).attr('value')).attr('actual-filter', $(this).attr('id').split('-')[1])
+		}
+
+		ctx.drawImage(video, 0, 0, 770, 490)
+	})
+
+	$('#finish-filtering').click(function () {
+		$('#save-screenshot').modal('show');
+	})
+
+	$('#share-in a').click(function () {
+		if ($(this).context.id == 'save-as-file') save_canvas();
+		else if ($(this).context.id == 'cancel') {
+			$('#feedback-shared').text('')
+			$('#save-screenshot').modal('hide');
+		} else $('#feedback-shared').text('Shared on ' + $(this).context.id.split('-')[2])
+	})
+
+	$('#save-screenshot').on('hide.bs.modal', function (e) {
+		if ($('#feedback-shared').text() != '') $('#modal-screenshot').modal('hide')
 	})
 }
 
@@ -163,4 +228,18 @@ function get_normalized_time (totalSeconds) {
 
 function get_normalized_position () {
 	return (video.currentTime / video.duration)*100;
+}
+
+function load_canvas_snapshot () {
+	$('#screenshots-modal canvas').each(function () {
+		var ctx = $(this)[0].getContext('2d');
+		ctx.drawImage(video, 0, 0, 110, 70)
+	})
+
+	var ctx = $('#main-screenshot')[0].getContext('2d');
+	ctx.drawImage(video, 0, 0, 770, 490)
+}
+
+function save_canvas() {
+	alert('saved');
 }

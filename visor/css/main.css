@@ -59,7 +59,9 @@ form.form-inline div {
 	height: 100px;
 }
 
-#screenshots-panel, #characters-panel {
+#screenshots-panel,
+#characters-panel,
+#screenshots-modal {
 	overflow-x: scroll;
     overflow-y: hidden;
     height: 80px;
@@ -70,11 +72,24 @@ form.form-inline div {
     padding: 5px;
 }
 
+#screenshots-modal {
+	margin: 0 auto;
+	width: 75%;
+}
+
+#screenshots-modal canvas {
+	cursor: pointer;
+}
+
 #characters-panel {
 	height: 50px;
 }
 
-#screenshots-panel figure, #houses-background figure, #character-list figure, #characters-panel a {
+#screenshots-panel figure,
+#houses-background figure,
+#character-list figure,
+#characters-panel a,
+#screenshots-modal img {
 	display: inline-block;
 }
 
@@ -280,12 +295,12 @@ video {
 	background: rgba(0,0,0,0.3);
 }
 
-div.ui-slider-range {
+div#actual-progress.ui-slider-range {
 	background-color: #F0E68C;
 	border-color: #FFD700;
 }
 
-span.ui-slider-handle.ui-state-default {
+#actual-progress span.ui-slider-handle.ui-state-default {
 	background: url(../images/egg.png) no-repeat scroll 50% 50%;
 	background-size: contain;
 	border: none;
@@ -293,7 +308,7 @@ span.ui-slider-handle.ui-state-default {
 	width: 20px;
 }
 
-.ui-slider-horizontal .ui-slider-handle {
+#actual-progress.ui-slider-horizontal .ui-slider-handle {
 	top: -1em;
 }
 
@@ -332,12 +347,6 @@ span.ui-slider-handle.ui-state-default {
 	width: 55px;
 	height: 55px;
 	border-radius: 20px;
-}
-
-input[type=range] {
-	max-width: 100px;
-	display: inline;
-	margin-left: 5px;
 }
 
 .fa {
@@ -391,11 +400,74 @@ video::-webkit-media-controls {
 }
 
 .char-info {
-
 	word-break: break-word;
 	white-space: normal;
 }
 
 #characters-panel a {
 	cursor: pointer;
+}
+
+.modal-body .container .row div {
+	border: 2px solid black;
+}
+
+#main-screenshot {
+	width: 90%;
+	padding: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+/* Filters */
+#filter-sepia { filter:sepia(100%); }
+#filter-blur { filter:blur(2px); }
+#filter-grayscale { filter:grayscale(100%); }
+#filter-invert { filter:invert(100%); }
+#filter-contrast { filter:contrast(50%); }
+
+#filter-intense {
+	height: 200px;
+	float: right;
+	margin-right: 4%;
+	visibility: hidden;
+}
+
+#custom-handle-filter {
+	width: 2em;
+	left: -.6em;
+	text-decoration: none;
+	text-align: center;
+	font-size: 13px;
+}
+
+#filter-screenshot-intense {
+	display: inline-block;
+}
+
+#finish-filtering-div {
+	text-align: right;
+}
+
+#finish-filtering {
+	margin: 10px 10px 10px 0;
+	font-size: 13px;
+}
+
+input[type=range] {
+	max-width: 100px;
+	display: inline;
+	margin-left: 5px;
+}
+
+#save-screenshot {
+	top: 25vh;
+}
+
+#share-in a i {
+	margin-right: 7px;
+}
+
+#feedback-shared {
+	margin-top: 30px;
 }
