@@ -74,7 +74,6 @@ form.form-inline div {
 
 #screenshots-modal {
 	margin: 0 auto;
-	width: 75%;
 }
 
 #screenshots-modal canvas {
@@ -394,7 +393,7 @@ video::-webkit-media-controls {
 	border: 1px solid black;
 }
 
-#lights-off {
+#lights-off, #commands-help {
 	font-size: 20px;
 	cursor: pointer;
 }
@@ -470,4 +469,14 @@ input[type=range] {
 
 #feedback-shared {
 	margin-top: 30px;
+}
+
+.dropdown-menu {
+	padding: 10px;
+    width: 250px !important;
+    cursor: default;
+}
+
+#commands-help .dropdown-menu li p {
+	font-size: 11px;
 }

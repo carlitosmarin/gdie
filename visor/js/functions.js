@@ -87,10 +87,7 @@ function init_video_control () {
 	})
 
 	$('#control-volume-range').on('change', function() {
-	    if ($('#control-volume-range').val() >= 50) $('#control-volume-btn').find('i').removeClass().addClass('fa fa-volume-up');
-	    else if ($('#control-volume-range').val() > 0) $('#control-volume-btn').find('i').removeClass().addClass('fa fa-volume-down');
-	    else $('#control-volume-btn').find('i').removeClass().addClass('fa fa-volume-off');
-	    video.volume = parseFloat(($('#control-volume-range').val()/100)).toFixed(1);
+		update_volume()
 	})
 
 	$('#control-expand').click(function () {
@@ -101,8 +98,12 @@ function init_video_control () {
 	$('#video-tag').bind('timeupdate', function () {
 		$("#actual-progress").slider('value', get_normalized_position())
 		$('#actual-time').text(get_normalized_time(video.currentTime))
-
 	});
+
+	$('#video-tag').hover(
+		function () { document.addEventListener('keyup', doc_keyUp, false);
+	},	function () { document.removeEventListener('keyup', doc_keyUp, false);
+	})
 
 	$('#control-vel-0, #control-vel-1, #control-vel-2').click(function () {
 		video.playbackRate = $(this).attr('vel');
@@ -164,6 +165,12 @@ function init_video_control () {
 	})
 
 	$('#control-screenshot').click(function () {
+		$('#filter-sepia').attr('value', 100)
+		$('#filter-blur').attr('value', 2)
+		$('#filter-grayscale').attr('value', 100)
+		$('#filter-invert').attr('value', 100)
+		$('#filter-contrast').attr('value', 100)
+		$('#filter-none').click()
 		$('#modal-screenshot').modal('show');
 	})
 
@@ -175,7 +182,6 @@ function init_video_control () {
 	$('#screenshots-modal canvas').click(function () {
 		$('#filter-'+$('#main-screenshot').attr('actual-filter')).attr('value', $('#main-screenshot').attr('actual-value'))
 		var ctx = $('#main-screenshot')[0].getContext('2d');
-		console.log(ctx)
 		if ($(this).attr('id').split('-')[1] == 'none') {
 			ctx.filter =  'none';
 			$("#filter-intense").css('visibility', 'hidden')
@@ -202,15 +208,23 @@ function init_video_control () {
 	})
 
 	$('#share-in a').click(function () {
+		$('#feedback-shared').text('')
 		if ($(this).context.id == 'save-as-file') save_canvas();
-		else if ($(this).context.id == 'cancel') {
-			$('#feedback-shared').text('')
-			$('#save-screenshot').modal('hide');
-		} else $('#feedback-shared').text('Shared on ' + $(this).context.id.split('-')[2])
+		else if ($(this).context.id == 'cancel') $('#save-screenshot').modal('hide');
+		else {
+			$('#feedback-shared').text('Shared on ' + $(this).context.id.split('-')[2])
+			setTimeout(function(){
+				$('#save-screenshot').modal('hide');
+				$('#control-play').click()
+			}, 1000);
+		}
 	})
 
 	$('#save-screenshot').on('hide.bs.modal', function (e) {
-		if ($('#feedback-shared').text() != '') $('#modal-screenshot').modal('hide')
+		if ($('#feedback-shared').text() != '') {
+			$('#modal-screenshot').modal('hide')
+			$('#feedback-shared').text('')
+		}
 	})
 }
 
@@ -242,4 +256,31 @@ function load_canvas_snapshot () {
 
 function save_canvas() {
 	alert('saved');
+}
+
+function doc_keyUp (e) {
+ 	if (e.ctrlKey) {
+ 		if (e.keyCode == 32) $('#control-play').click(); // SPACEBAR: Play/Pause
+ 		else if (e.keyCode == 83) $('#control-screenshot').click(); // S: Screenshot
+ 		else if (e.keyCode == 76) $('#lights-off').click(); // L: Lights
+ 		else if (e.keyCode == 187) {
+ 			if (!$('#collapseVolume').hasClass('in')) $('#control-volume-btn').click();
+ 			$('#control-volume-range').val(parseInt($('#control-volume-range').val())+10) // +: More volume
+ 			update_volume()
+ 		} else if (e.keyCode == 191) {
+ 			if (!$('#collapseVolume').hasClass('in')) $('#control-volume-btn').click();
+ 			$('#control-volume-range').val(parseInt($('#control-volume-range').val())-10) // -: Less volume
+ 			update_volume()
+ 		}
+		//TODO
+ 		else if (e.keyCode == 39) $('#control-play').click(); // ->: Next chapter
+ 		else if (e.keyCode == 37) $('#control-play').click(); // <-: Last chapter
+ 	}
+}
+
+function update_volume () {
+	if ($('#control-volume-range').val() >= 50) $('#control-volume-btn').find('i').removeClass().addClass('fa fa-volume-up');
+    else if ($('#control-volume-range').val() > 0) $('#control-volume-btn').find('i').removeClass().addClass('fa fa-volume-down');
+    else $('#control-volume-btn').find('i').removeClass().addClass('fa fa-volume-off');
+    video.volume = parseFloat(($('#control-volume-range').val()/100)).toFixed(1);
 }
