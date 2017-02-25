@@ -27,6 +27,7 @@ function init_canvas_functions () {
 
 	// Eery time that you click over a canvas filter, we apply the filter to the main picture
 	$('#screenshots-modal canvas').click(function () {
+		$('#current-filter-tag label big').text($(this).attr('id').split('-')[1])
 		$('#filter-'+$('#main-screenshot').attr('actual-filter')).attr('value', $('#main-screenshot').attr('actual-value'))
 		var ctx = $('#main-screenshot')[0].getContext('2d');
 		if ($(this).attr('id').split('-')[1] == 'none') {
@@ -58,9 +59,8 @@ function init_canvas_functions () {
 	// Depending of the chosen button, we save the image or share it in the social media
 	$('#share-in a').click(function () {
 		$('#feedback-shared').text('')
-		if ($(this).context.id == 'save-as-file') save_canvas();
-		else if ($(this).context.id == 'cancel') $('#save-screenshot').modal('hide');
-		else {
+		if ($(this).context.id == 'cancel') $('#save-screenshot').modal('hide');
+		else if ($(this).context.id != 'save-as-file'){
 			$('#feedback-shared').text('Shared on ' + $(this).context.id.split('-')[2])
 			setTimeout(function(){
 				$('#save-screenshot').modal('hide');
@@ -76,6 +76,8 @@ function init_canvas_functions () {
 			$('#feedback-shared').text('')
 		}
 	})
+
+	document.getElementById('save-as-file').addEventListener('click', download, false);
 }
 
 function load_canvas_snapshot () {
@@ -88,6 +90,10 @@ function load_canvas_snapshot () {
 	ctx.drawImage(video, 0, 0, 770, 490)
 }
 
-function save_canvas() {
-	alert('saved');
+function download() {
+	alert('voy a guardarlo')
+	var canvas = document.getElementById('main-screenshot')
+    var dt = canvas.toDataURL('image/jpeg');
+    downloadLnk.download = 'scene-filter.jpg'
+    this.href = dt;
 }

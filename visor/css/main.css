@@ -424,6 +424,9 @@ video::-webkit-media-controls {
 #filter-grayscale { filter:grayscale(100%); }
 #filter-invert { filter:invert(100%); }
 #filter-contrast { filter:contrast(50%); }
+#filter-brightness { filter:brightness(50%); }
+#filter-opacity { filter:opacity(50%); }
+#filter-saturate { filter:saturate(50%); }
 
 #filter-intense {
 	height: 200px;
@@ -479,4 +482,8 @@ input[type=range] {
 
 #commands-help .dropdown-menu li p {
 	font-size: 11px;
+}
+
+#current-filter-tag {
+    margin: -10px 0 5px 10px;
 }

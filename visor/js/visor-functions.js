@@ -134,6 +134,7 @@ function doc_keyUp (e) {
  		else if (e.keyCode == 49) $('#control-vel-0').click(); 								// 1: Low velocity
  		else if (e.keyCode == 50) $('#control-vel-1').click(); 								// 2: Normal velocity
  		else if (e.keyCode == 51) $('#control-vel-2').click(); 								// 3: High velocity
+ 		else if (e.keyCode == 70) $('#control-expand').click(); 							// F: Full-screen
  		else if (e.keyCode == 76) $('#lights-off').click(); 								// L: Lights
  		else if (e.keyCode == 77) $('#control-volume-mute').click(); 						// M: Mute
  		else if (e.keyCode == 83) $('#control-screenshot').click();							// S: Screenshot
