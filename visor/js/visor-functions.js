@@ -82,7 +82,7 @@ function init_video_controls () {
 		· eng: english
 		· no-sub: subtitles hidden
 	*/
-	$('#control-esp, #control-ru, #control-eng, #control-no-sub').click(function () {
+	$('#control-esp, #control-jp, #control-eng, #control-no-sub').click(function () {
 		$('#collapseLanguage .well .btn').removeClass('active-lan');
 		$('#control-'+$(this).attr('lan')).addClass('active-lan');
 	})
@@ -106,7 +106,9 @@ function init_video_controls () {
 	});
 
 	// When you unhover the video-container, the opened collapse will hide
-	$('#video-container').hover(function () {null}, function () {
+	$('#video-container').hover(function () {
+
+	}, function () {
 		$('.collapse').collapse('hide');
 	})
 
@@ -131,9 +133,7 @@ function doc_keyUp (e) {
  		if (e.keyCode == 32) $('#control-play').click(); 									// SPACEBAR: Play/Pause
  		else if (e.keyCode == 39) null								// ->: Next chapter TDO
 		else if (e.keyCode == 37) null 								// <-: Last chapter TDO
- 		else if (e.keyCode == 49) $('#control-vel-0').click(); 								// 1: Low velocity
- 		else if (e.keyCode == 50) $('#control-vel-1').click(); 								// 2: Normal velocity
- 		else if (e.keyCode == 51) $('#control-vel-2').click(); 								// 3: High velocity
+ 		else if (e.keyCode >= 48 || e.keyCode <= 57) update_position(e.key)					// 0-9: Change current position
  		else if (e.keyCode == 70) $('#control-expand').click(); 							// F: Full-screen
  		else if (e.keyCode == 76) $('#lights-off').click(); 								// L: Lights
  		else if (e.keyCode == 77) $('#control-volume-mute').click(); 						// M: Mute
@@ -145,6 +145,10 @@ function doc_keyUp (e) {
  			update_volume()
  		}
  	}
+}
+
+function update_position (value) {
+	video.currentTime = (value*video.duration)/10;
 }
 
 function update_volume () {

@@ -8,7 +8,6 @@ $(function () {
 	init_canvas_functions()
 	init_filter_functions()
 	init_subtitles()
-
 })
 
 function init_easter_eggs () {
@@ -30,40 +29,16 @@ function init_easter_eggs () {
 
 
 function init_subtitles () {
-		var control_esp = document.getElementById('control-esp');
-		var control_eng = document.getElementById('control-eng');
-		var control_ja = document.getElementById('control-ja');
-		var control_none = document.getElementById('control-no-sub');
-		
-		control_esp.addEventListener('click', function(e) {
-			for (var i = 0; i < video.textTracks.length; i++) {
-	    		video.textTracks[i].mode = 'hidden';
-			}		
-		   	video.textTracks[1].mode = 'showing';
-            this.setAttribute('data-state', 'active');
-		});
+	// http://ronallo.com/blog/html5-video-caption-cue-settings-tester/ 		Styling cues
+	var languages = {'esp': 1, 'eng': 2, 'jp': 3}
 
-		control_eng.addEventListener('click', function(e) {
-			for (var i = 0; i < video.textTracks.length; i++) {
-	    		video.textTracks[i].mode = 'hidden';
-			}		   	
-		   	video.textTracks[2].mode = 'showing';
-            this.setAttribute('data-state', 'active');
-		});
+	$('.set-subtitle').click(function () {
+		for (var i = 0; i < video.textTracks.length; i++) video.textTracks[i].mode = 'hidden';
+		video.textTracks[languages[$(this).attr('lan')]].mode = 'showing'
+		$(this).attr('data-state', 'active')
+	})
 
-		control_ja.addEventListener('click', function(e) {
-			for (var i = 0; i < video.textTracks.length; i++) {
-	    		video.textTracks[i].mode = 'hidden';
-			}		   	
-		   	video.textTracks[3].mode = 'showing';
-            this.setAttribute('data-state', 'active');
-		});
-
-		control_none.addEventListener('click', function(e) {			
-			for (var i = 0; i < video.textTracks.length; i++) {
-	    		video.textTracks[i].mode = 'hidden';
-			}
-
-		});
-
+	$('#control-no-sub').click(function () {
+		for (var i = 0; i < video.textTracks.length; i++) video.textTracks[i].mode = 'hidden';
+	})
 }

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="lib/jquery-ui/jquery-ui.min.css">
     <link rel="stylesheet" href="lib/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -153,17 +153,15 @@
                             </div>
                         </div>
                     </div>
-                    
 
                     <div class="row">
                         <div id="video-container" class="col-md-7">
                             <video id="video-tag">
-                                <source src="./video_src/got1x01.mp4" type="video/mp4" />
+                                <source src="../../chapter.mp4" type="video/mp4" />
                                 <track src="./media/scene-info.vtt" kind="metadata" srclang="en" label="English" />
                                 <track src="./media/ESsubs.vtt" kind="subtitles" srclang="es" label="Spanish" />
                                 <track src="./media/ENsubs.vtt" kind="subtitles" srclang="en" label="English"  />
                                 <track src="./media/JAsubs.vtt" kind="subtitles" srclang="ja" label="Japanese"  />
-                                
                             </video>
 
                             <div id="video-controls">
@@ -204,14 +202,11 @@
                                             </div>
                                         </div>
                                         <div class="collapse" id="collapseLanguage">
-
                                             <div class="well well-sm">
                                                 <a id="control-no-sub" class="btn btn-default active-lan" lan="no-sub"><i class="fa fa-ban" aria-hidden="true"></i></a>
-                                                <a id="control-esp" class="btn btn-default" lan='esp'><span class="flag-icon flag-icon-es"></span></a>
-                                                <a id="control-ja" class="btn btn-default" lan='ja'><span class="flag-icon flag-icon-ja"></span></a>
-                                                <a id="control-eng" class="btn btn-default" lan='eng'><span class="flag-icon flag-icon-gb"></span></i></a>
-                                                <p id="demo"></p>
-
+                                                <a id="control-esp" class="btn btn-default set-subtitle" lan='esp'><span class="flag-icon flag-icon-es"></span></a>
+                                                <a id="control-jp" class="btn btn-default set-subtitle" lan='jp'><span class="flag-icon flag-icon-jp"></span></a>
+                                                <a id="control-eng" class="btn btn-default set-subtitle" lan='eng'><span class="flag-icon flag-icon-gb"></span></i></a>
                                             </div>
                                         </div>
                                     </div>
