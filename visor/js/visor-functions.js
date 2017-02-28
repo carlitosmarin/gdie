@@ -148,7 +148,7 @@ function doc_keyUp (e) {
 }
 
 function update_position (value) {
-	video.currentTime = (value*video.duration)/10;
+	video.currentTime = (value*video.duration)/100;
 }
 
 function update_volume () {
