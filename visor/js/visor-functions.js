@@ -133,7 +133,7 @@ function doc_keyUp (e) {
  		if (e.keyCode == 32) $('#control-play').click(); 									// SPACEBAR: Play/Pause
  		else if (e.keyCode == 39) null								// ->: Next chapter TDO
 		else if (e.keyCode == 37) null 								// <-: Last chapter TDO
- 		else if (e.keyCode >= 48 || e.keyCode <= 57) update_position(e.key)					// 0-9: Change current position
+ 		else if (e.keyCode >= 48 && e.keyCode <= 57) update_position(e.key)					// 0-9: Change current position
  		else if (e.keyCode == 70) $('#control-expand').click(); 							// F: Full-screen
  		else if (e.keyCode == 76) $('#lights-off').click(); 								// L: Lights
  		else if (e.keyCode == 77) $('#control-volume-mute').click(); 						// M: Mute
@@ -148,7 +148,7 @@ function doc_keyUp (e) {
 }
 
 function update_position (value) {
-	video.currentTime = (value*video.duration)/100;
+	video.currentTime = (value*video.duration)/10;
 }
 
 function update_volume () {

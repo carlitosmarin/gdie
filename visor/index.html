@@ -50,6 +50,7 @@
                             <li><h5>Over the video, hold <kbd>ctrl</kbd> and: </h5> </li>
                             <li role="separator" class="divider"></li>
                             <li><p><kbd>spacebar</kbd> Play/Pause</p></li>
+                            <li><p><kbd>0-9</kbd> Nth Video Part</p></li>
                             <li><p><kbd>F</kbd> Full-screen Mode</p></li>
                             <li><p><kbd>L</kbd> Turn on/off lights</p></li>
                             <li><p><kbd>M</kbd> Mute</p></li>
@@ -139,18 +140,7 @@
 
                         <div id="scenes-panel" class="col-md-5">
                             <label>Scenes: </label>
-                            <div id="scenes-list" class="list-group">
-                                <a href="#" class="list-group-item">Cras justo odio</a>
-                                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                                <a href="#" class="list-group-item">Morbi leo risus</a>
-                                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                                <a href="#" class="list-group-item">Vestibulum at eros</a>
-                                <a href="#" class="list-group-item">Cras justo odio</a>
-                                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                                <a href="#" class="list-group-item">Morbi leo risus</a>
-                                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                                <a href="#" class="list-group-item">Vestibulum at eros</a>
-                            </div>
+                            <div id="scenes-list" class="list-group"></div>
                         </div>
                     </div>
 
@@ -158,7 +148,7 @@
                         <div id="video-container" class="col-md-7">
                             <video id="video-tag">
                                 <source src="../../chapter.mp4" type="video/mp4" />
-                                <track src="./media/scene-info.vtt" kind="metadata" srclang="en" label="English" />
+                                <track src="./media/scene-info-test.vtt" kind="metadata" srclang="en" label="Scene info" default/>
                                 <track src="./media/ESsubs.vtt" kind="subtitles" srclang="es" label="Spanish" />
                                 <track src="./media/ENsubs.vtt" kind="subtitles" srclang="en" label="English"  />
                                 <track src="./media/JAsubs.vtt" kind="subtitles" srclang="ja" label="Japanese"  />
@@ -312,13 +302,7 @@
 
                     <div class="row">
                         <div class="col-md-7">
-                            <div class="panel-tags">
-                                <span>Tags: </span>
-                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-tags"></i> John Snow</a>
-                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-tags"></i> Sex</a>
-                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-tags"></i> Sex</a>
-                                <a class="btn btn-info btn-sm" href="#"><i class="fa fa-tags"></i> More sex</a>
-                            </div>
+                            <div id="panel-tags"></div>
                         </div>
                     </div>
                 </div>
@@ -342,5 +326,6 @@
     <script src="js/visor-functions.js"></script>
     <script src="js/canvas-functions.js"></script>
     <script src="js/filter-functions.js"></script>
+    <script src="js/track-functions.js"></script>
 </body>
 </html>

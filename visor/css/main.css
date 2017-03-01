@@ -50,7 +50,7 @@ form.form-inline div {
 	height: 70px;
 }
 
-.panel-tags {
+#panel-tags {
 	padding: 7px
 }
 
@@ -352,7 +352,7 @@ div#actual-progress.ui-slider-range {
 	color: black;
 }
 
-.panel-tags a i.fa {
+#panel-tags a i.fa {
 	font-size: 11px;
 }
 
