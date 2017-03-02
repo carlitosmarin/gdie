@@ -106,15 +106,8 @@ function init_video_controls () {
 	});
 
 	// When you unhover the video-container, the opened collapse will hide
-	$('#video-container').hover(function () {
-
-	}, function () {
+	$('#video-container').hover(function () {}, function () {
 		$('.collapse').collapse('hide');
-	})
-
-	// When you click over the img character, an information modal will appear
-	$('.modaler').click(function () {
-		$('#modal-character').modal('show');
 	})
 
 	// Before showing the modal to apply filters, we restart the variables
@@ -168,4 +161,26 @@ function get_normalized_time (totalSeconds) {
 	if (minutes < 9) minutes = '0' + minutes;
 
 	return ((hours > 0) ? hours + ':' : '') + ((minutes > 0) ? minutes + ':' : '00:') + seconds
+}
+
+// When you click over the img character, an information modal will appear
+function load_character_modal(target) {
+	$.getJSON("./js/characters.json", {
+		format: "json"
+	})
+	.done(function(data) {
+		var path = '#modal-character .modal-dialog .modal-content '
+		var index
+		for (index = 0; index < data.length; index++) if (data[index].data_char == target) break;
+		$(path + '.modal-header h4').text(data[index].name)
+		path += '.modal-body '
+		$(path + 'h6').text(data[index].description)
+		$(path + '#char-wiki').attr('href', data[index].wikipedia)
+		$(path + '#char-imdb').attr('href', data[index].imdb)
+	})
+	.fail(function(e) {
+		console.log(e);
+	})
+
+	$('#modal-character').modal('show');
 }

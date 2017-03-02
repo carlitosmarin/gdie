@@ -1,5 +1,5 @@
 function init_scene_tracking () {
-	video.addEventListener('loadedmetadata', function() {
+	video.addEventListener('loadeddata', function() {
 		var scene_track = video.textTracks[0]
 		scene_track.mode = 'showing'
 
@@ -16,14 +16,14 @@ function init_scene_tracking () {
 				load_screenshots(activeCue)
 			}
 		};
-	});
+	}, false);
 }
 
 function init_scenes_title (scene_track) {
 	var cues = scene_track.cues;
 	for (var i = 0; i < cues.length; ++i) {
 		var title = JSON.parse(cues[i].text).title;
-		$('#scenes-list').append('<a id="list-'+cues[i].id+'" class="list-group-item">'+title+'</div>')
+		$('#scenes-list').append('<a onclick="javascript:video.currentTime='+cues[i].startTime+'" class="list-group-item green-item">'+title+'</div>')
 	}
 }
 
@@ -44,14 +44,9 @@ function load_characters (info) {
 		var character_list = info.characters.split(', ')
 		for (var i = 0; i < character_list.length; i++) {
 			for (var j = 0; j < data.length; j++) {
-				console.log('comparo: '+character_list[i])
-				console.log('con: '+data[j].name)
 				if (character_list[i] == data[j].name) {
-					var a_link = '<a class="modaler" data-char="'+data[j].data_char+'"><img src="./images/'+data[j].image+'.png"></a>'
-					var div_well = '<div id="modal-character" class="modal fade" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="well char-info center-text">'
-					var char_info = '<h6>'+data[j].name+'</h6><p>'+data[j].description+'</p>'
-					var buttons = '<a class="btn btn-default btn-lg" href="#"><i class="fa fa-filter"></i> Filter</a><a class="btn btn-default btn-lg" href="#"><i class="fa fa-wikipedia-w"></i> Wikipedia</a><a class="btn btn-default btn-lg" href="#"><i class="fa fa-imdb"></i> IMDb</a>'
-					$('#characters-panel').append(a_link + div_well + char_info + buttons)
+					var a_link = '<a class="modaler" onclick="javascript:load_character_modal(\''+data[j].data_char+'\')"><img src="./images/'+data[j].image+'.png"></a>'
+					$('#characters-panel').append(a_link)
 					break
 				}
 			}
@@ -71,5 +66,14 @@ function load_tags (info) {
 }
 
 function load_screenshots (activeCue) {
-	// body...
+	var screenshots = 5
+	var time0 = activeCue.startTime
+	var interval = (activeCue.endTime - time0)
+	if (interval < 30) screenshots = 1
+
+	$('#screenshots-panel').empty()
+	for (var i = 0; i < screenshots; i++) {
+		$('#screenshots-panel').append('<figure><img class="screenshot" src="./images/screenshots/'+parseInt(time0)+'.png" onclick="javascript:video.currentTime='+parseInt(time0)+'"/><figcaption>'+get_normalized_time(time0)+'</figcaption></figure>')
+		time0 += interval
+	}
 }

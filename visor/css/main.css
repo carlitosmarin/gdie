@@ -43,7 +43,13 @@ form.form-inline div {
 .list-group-item {
 	padding: 10px;
 	font-size: 12px;
+	cursor: pointer;
 }
+
+.green-item { background-color: #90EE90; }
+a.green-item:hover { background-color: #00FF00; }
+.red-item { background-color: #FFB6C1; }
+a.red-item:hover { background-color: #DC143C; }
 
 .screenshot {
 	width: 110px;
@@ -497,4 +503,12 @@ input[type=range] {
 #video-container:hover #video-tag::cue {
   /*transform: translateY(-50px);*/
   margin-bottom: 50px;
+}
+
+.modal-body h6 {
+	line-height: 20px;
+}
+
+#scene-description {
+	font-size: 10px;
 }
