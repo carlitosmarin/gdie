@@ -3,6 +3,7 @@ var last_volume = 0
 function init_video_controls () {
 	video.addEventListener('loadedmetadata', function() {
 	    $('#duration').text(get_normalized_time(video.duration))
+	    $('#filter-btn').prop("disabled", false);
 	});
 
 	// By the time the video has ended, it will be back at starter point
@@ -175,6 +176,7 @@ function load_character_modal(target) {
 		$(path + '.modal-header h4').text(data[index].name)
 		path += '.modal-body '
 		$(path + 'h6').text(data[index].description)
+		$(path + '#char-filter').attr('data-char', data[index].name)
 		$(path + '#char-wiki').attr('href', data[index].wikipedia)
 		$(path + '#char-imdb').attr('href', data[index].imdb)
 	})

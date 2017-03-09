@@ -23,7 +23,7 @@ function init_scenes_title (scene_track) {
 	var cues = scene_track.cues;
 	for (var i = 0; i < cues.length; ++i) {
 		var title = JSON.parse(cues[i].text).title;
-		$('#scenes-list').append('<a onclick="javascript:video.currentTime='+cues[i].startTime+'" class="list-group-item green-item">'+title+'</div>')
+		$('#scenes-list').append('<a id="scene-item-'+cues[i].id+'" onclick="javascript:video.currentTime='+cues[i].startTime+'" class="list-group-item green-item">'+title+'</div>')
 	}
 }
 
@@ -47,7 +47,7 @@ function load_characters (info) {
 				if (character_list[i] == data[j].name) {
 					var a_link = '<a class="modaler" onclick="javascript:load_character_modal(\''+data[j].data_char+'\')"><img src="./images/'+data[j].image+'.png"></a>'
 					$('#characters-panel').append(a_link)
-					break
+					break;
 				}
 			}
 		}
@@ -61,7 +61,7 @@ function load_tags (info) {
 	$('#panel-tags').empty()
 	var tag_list = info.tags.split(', ')
 	for (var i = 0; i < tag_list.length; i++) {
-		$('#panel-tags').append('<a class="tag-evt btn btn-info btn-sm" data-tag="'+tag_list[i]+'"><i class="fa fa-tags"></i> '+tag_list[i]+'</a> ')
+		$('#panel-tags').append('<a class="tag-evt btn btn-info btn-sm" onclick="javascript:filter_scenes_tag(\''+tag_list[i]+'\')"><i class="fa fa-tags"></i> '+tag_list[i]+'</a> ')
 	}
 }
 

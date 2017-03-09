@@ -74,19 +74,19 @@
                                 <div class="col-md-5">
                                     <label>By house:</label>
                                     <div id="houses-background">
-                                        <figure>
+                                        <figure family="stark">
                                             <img class="every-house" src="./images/stark.png"/>
                                             <figcaption>Stark</figcaption>
                                         </figure>
-                                        <figure>
+                                        <figure family="lannister">
                                             <img class="every-house" src="./images/lannister.png"/>
                                             <figcaption>Lannister</figcaption>
                                         </figure>
-                                        <figure>
+                                        <figure family="baratheon">
                                             <img class="every-house" src="./images/baratheon.png"/>
                                             <figcaption>Baratheon</figcaption>
                                         </figure>
-                                        <figure>
+                                        <figure family="targaryen">
                                             <img class="every-house" src="./images/targaryen.png"/>
                                             <figcaption>Targaryen</figcaption>
                                         </figure>
@@ -97,7 +97,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label>By content: </label>
-                                            <input type="text" class="form-control" placeholder="Death, Sex, ... " />
+                                            <input id="content-filtering" type="text" class="form-control" placeholder="Death, Sex, ... " />
                                         </div>
                                     </div>
 
@@ -105,7 +105,7 @@
                                         <br>
                                         <div class="col-md-12">
                                             <label>By places:</label>
-                                            <select class="form-control">
+                                            <select id="place-filtering" class="form-control">
                                                 <option value="none">None</option>
                                                 <option value="winterfell">Winterfell</option>
                                                 <option value="kings-landing">King's Landing</option>
@@ -131,7 +131,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-md-2"><button id="filter-btn" type="button"class="btn btn-default pull-right">Filter</button></div>
+                                        <div class="col-md-2"><button id="filter-btn" type="button"class="btn btn-default pull-right" disabled>Filter</button></div>
                                         <div class="col-md-2"><button id="remove-filter-btn" type="button" class="btn btn-default pull-right hide">No Filter</button></div>
                                     </div>
                                 </div>

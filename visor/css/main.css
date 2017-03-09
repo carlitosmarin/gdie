@@ -177,7 +177,7 @@ footer {
 
 #houses-background figure.selected img {
 	color: red;
-	filter: sepia(100);
+	filter: sepia(100%);
 }
 
 #character-filter {
