@@ -1,0 +1,14 @@
+INDICE de la documentación técnica a presentar por cada grupo:
+
+1) Descripción de todas las funcionalidades de acceso e interacción desarrolladas en la práctica. Con algunos volcados de pantalla representativos
+
+2) Explicación técnica del proceso de codificación y publicación del material multimedia. Formato/s  y codecs de video/audio utilizados.
+
+3) Explicación técnica del uso de TextTracks, APIs, librerias, códigos JavaScript, etc. utilizados para desarrollar totas la funcionalidades (metadata, capitulos, ...) y aspectos de desarrollo que sean relevantes. Se pueden incluir "scripts" que ayuden a explicar las funcionalidades implementadas
+
+4) Web-responsive?. Problemas y soluciones adoptadas
+
+5) Evaluación de la práctica en diferentes plataformas (web-browser, dispositivos, ...). Por ejemplo, presentar una tabla con las funcionalidades que  aceptan o no aceptan los diferentes entornos evaluados.
+
+6) Opinión sobre la práctica ? Aspectos posibles de mejora.
+

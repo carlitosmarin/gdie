@@ -512,3 +512,9 @@ input[type=range] {
 #scene-description {
 	font-size: 10px;
 }
+
+#video-controls.full-screen {
+	position: absolute;
+	bottom: 0;
+	z-index: 99999999999999999;
+}

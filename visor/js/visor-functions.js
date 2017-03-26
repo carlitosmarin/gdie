@@ -48,9 +48,14 @@ function init_video_controls () {
 
 	// Full Screen Button
 	$('#control-expand').click(function () {
-		if (video.mozRequestFullScreen)  video.mozRequestFullScreen();
-		else if (video.webkitRequestFullScreen)  video.webkitRequestFullScreen();
-	})
+		if (video.mozRequestFullScreen) {
+			video.mozRequestFullScreen();
+			$('#video-controls').addClass('full-screen');
+		} else if (video.webkitRequestFullScreen) {
+			video.webkitRequestFullScreen();
+			$('#video-controls').addClass('full-screen');
+		}
+	});
 
 	// Every time that changes the current time of the video
 	$('#video-tag').bind('timeupdate', function () {
