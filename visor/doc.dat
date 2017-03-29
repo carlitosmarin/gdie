@@ -12,3 +12,34 @@ INDICE de la documentación técnica a presentar por cada grupo:
 
 6) Opinión sobre la práctica ? Aspectos posibles de mejora.
 
+Answers
+-------
+4) Es responsive pq se ha usado un framework, bootrstrap, que facilita notablemente el diseño web sobretodo con la ayuda de clases que se adaptan a cualquier dispositivo que abra la aplicación. Se cambia la vista horizontal de los elementos (una especie de css[display:inline] sin serlo) por una vista vertical (una especia de css[display:block])
+
+5)
+
+		| filter		| scenes		| visor			| description	| canvas 						| shortcuts	 	| intro 			|
+		-------------------------------------------------------------------------------------------------------------------------------------
+safari 	| Si			| Si			| Si			| Si			| Canvas no canvia es filtre	| Si			| Si				|
+		-------------------------------------------------------------------------------------------------------------------------------------
+chrome	| Si			| Si			| Si			| Si			| Si							| Si			| Si				|
+		-------------------------------------------------------------------------------------------------------------------------------------
+firefox	| Si			| Si			| *				| No			| Canvas no canvia es filtre	| Si			| Video not playing	|
+		-------------------------------------------------------------------------------------------------------------------------------------
+		* inicialmente salen los vtt de metada mostrados en la pantalla, xo no deberian salir! D:
+
+
+		| Responsive 	| Functions		|
+		---------------------------------
+iphone	| Si			| Si			|
+		---------------------------------
+ipad 	| Si			| Si			|
+		---------------------------------
+macbook | Si			| Si			|
+		---------------------------------
+
+6) Posibles mejoras? No hay.
+	· Conectar con las APIs de Facebook y Twitter xa compartir la captura de imagen retocada.
+	· Al poner modo Cine, situar el video en el centro de la pantalla para poder disfrutar de una vista más panorámica.
+	· Más contenido con más escenas, posibiltando más interactividad al poder usar más filtros.
+	· Toma de screenshots dinámica antes de cargar el video. Ahora lo hacemos de forma estática, con las capturas guardadas en el servidor.
