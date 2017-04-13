@@ -112,7 +112,82 @@
                     <h4 class="modal-title">Game of thrones <small>Help desk</small></h4>
                 </div>
                 <div class="modal-body">
-                    <p>One fine body&hellip;</p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="nav nav-pills">
+                                    <li role="presentation">
+                                        <div class="user-help">
+                                            <div class="col-md-4">
+                                                <img class="logo-user" src="./images/snow.png" />
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h5>Snow</h5>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li role="presentation">
+                                        <div class="user-help">
+                                            <div class="col-md-4">
+                                                <img class="logo-user" src="./images/snow.png" />
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h5>Snow</h5>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="header-chat">
+                                    <img src="./images/snow.png" class="logo-user-25"/>
+                                    <h5>Snow</h5>
+                                    <a id="call-button" class="jon"><i class="fa fa-phone"></i> Call </a>
+                                </div>
+                                <div class="no-video-desk">
+                                    <div class="content-chat">
+                                        <div class="message-general">
+                                            <div class="message-boot boot">
+                                                <p class="message-boot-content">Hello World</p>
+                                            </div>
+                                        </div>
+                                        <div class="message-general">
+                                            <div class="message-help helper">
+                                                <p class="message-helper-content">Hola amigo, me llamo Jessyca y le llamo de la compañia Orange para ofrecerle una oferta que no podras rechazar</p>
+                                                <p class="helper-datetime">13/07/17 <i class="fa fa-check"></i></p>
+                                            </div>
+                                        </div>
+                                        <div class="message-general">
+                                            <div class="message-help user">
+                                                <p class="message-user-content">Puto SPAM</p>
+                                                <p class="helper-datetime">13/07/17 <i class="fa fa-check"></i></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-chat">
+                                        <div class="row">
+                                            <div class="textarea-help col-md-10">
+                                                <textarea class="form-control" rows="3"></textarea>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <h5><span id="actual-input-length">0</span>/140</h5>
+                                                <a class="btn btn-success">Send</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="video-desk" hidden>
+                                    <div id="video-helper">
+                                        <canvas></canvas>
+                                    </div>
+                                    <div id="video-user">
+                                        <video id="video-user-video"></video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -125,5 +200,6 @@
     <script src="lib/jquery-ui/jquery-ui.min.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/visor-functions.js"></script>
+    <script src="js/webRTC-functions.js"></script>
 </body>
 </html>

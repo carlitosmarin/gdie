@@ -146,26 +146,3 @@ function get_normalized_time (totalSeconds) {
 
     return ((hours > 0) ? hours + ':' : '') + ((minutes > 0) ? minutes + ':' : '00:') + seconds
 }
-
-// When you click over the img character, an information modal will appear
-function load_character_modal(target) {
-    $.getJSON("./js/characters.json", {
-        format: "json"
-    })
-        .done(function(data) {
-            var path = '#modal-character .modal-dialog .modal-content '
-            var index;
-            for (index = 0; index < data.length; index++) if (data[index].data_char == target) break;
-            $(path + '.modal-header h4').text(data[index].name);
-            path += '.modal-body ';
-            $(path + 'h6').text(data[index].description)
-            $(path + '#char-filter').attr('data-char', data[index].name);
-            $(path + '#char-wiki').attr('href', data[index].wikipedia);
-            $(path + '#char-imdb').attr('href', data[index].imdb);
-        })
-        .fail(function(e) {
-            console.log(e);
-        })
-
-    $('#modal-character').modal('show');
-}
