@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title>Your page title here :)</title>
+    <title>VideoChat and MPEG-DASH</title>
     <meta name="description" content="">
     <meta name="author" content="Carlos Marin">
 
@@ -16,8 +16,9 @@
     <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/jquery-ui/jquery-ui.min.css">
     <link rel="stylesheet" href="css/main.css">
 
     <!-- Favicon
@@ -26,21 +27,103 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="./images/logo.png"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="lights-off"><a><i class="fa fa-moon-o"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Primary Page Layout
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <div class="container">
         <div class="row">
-            <div class="one-half column" style="margin-top: 25%">
-                <h4>Basic Page</h4>
-                <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+            <div id="main-content" class="panel panel-default">
+                <div class="panel-body">
+                    <div class="container">
+                        <div class="row-fluid">
+                            <h3>Game Of Thrones <small>The kingsroad (1.02)</small></h3>
+                            <div class="col-md-12 m-r-10">
+                                <div id="video-container" class="col-md-12">
+                                    <video id="video-tag">
+                                        <source src="../../chapter.mp4" type="video/mp4" />
+                                        <!--<track src="./media/scene-info-test.vtt" kind="metadata" srclang="en" label="Scene info" default/>
+                                        <track src="./media/ESsubs.vtt" kind="subtitles" srclang="es" label="Spanish" />
+                                        <track src="./media/ENsubs.vtt" kind="subtitles" srclang="en" label="English"  />
+                                        <track src="./media/JAsubs.vtt" kind="subtitles" srclang="ja" label="Japanese"  />-->
+                                    </video>
+
+                                    <div id="video-controls">
+                                        <div>
+                                            <div id="video-progress">
+                                                <div id="actual-progress"></div>
+                                            </div>
+                                        </div>
+                                        <div id="video-buttons">
+                                            <div>
+                                                <a id="control-volume-btn" class="btn btn-default" data-toggle="collapse"><i class="fa fa-volume-up" aria-hidden="true"></i></a>
+                                                <span class="timer-control"><span id="actual-time">00:00</span>/<span id="duration"></span></span>
+                                            </div>
+
+                                            <div>
+                                                <a id="control-stop" class="btn btn-default"><i class="fa fa-stop"></i></a>
+                                                <a id="control-fast-backward" class="btn btn-default"><i class="fa fa-fast-backward"></i></a>
+                                                <a id="control-play" class="btn btn-default"><i class="fa fa-play"></i></a>
+                                                <a id="control-fast-forward" class="btn btn-default"><i class="fa fa-fast-forward"></i></a>
+                                            </div>
+
+                                            <div>
+                                                <a id="control-timing" class="btn btn-default" data-toggle="collapse"><i class="fa fa-tachometer"></i></a>
+                                                <a id="control-cc" class="btn btn-default" data-toggle="collapse" ><i class="fa fa-cc"></i></a>
+                                                <a id="control-expand" class="btn btn-default"><i class="fa fa-expand" aria-hidden="true"></i></a>
+                                                <a id="control-screenshot" class="btn btn-default"><i class="fa fa-camera" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <div id="turn-off" class="lights-out"></div>
+
+    <div id="toggle-modal-panel">
+        <a class="btn btn-success" data-toggle="modal" data-target="#help-desk-modal"><i class="fa fa-phone fa-2x fa-spin fa-fw"></i> HelpDesk GoT</a>
+    </div>
+    <div id="help-desk-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Game of thrones <small>Help desk</small></h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <!-- End Document
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.min.js"></script>
     <script src="js/functions.js"></script>
+    <script src="js/visor-functions.js"></script>
 </body>
 </html>
