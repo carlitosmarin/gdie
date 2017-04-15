@@ -171,7 +171,7 @@ a:hover {
     text-decoration: none;
 }
 
-a i.fa  {
+a#call-button i.fa {
     font-size: 25px;
 }
 

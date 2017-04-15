@@ -37,7 +37,7 @@ function init_video_controls () {
             $('#control-volume-btn').find('i').removeClass().addClass('fa fa-volume-' +(last_volume >= 0.5 ? 'up':'down'));
         } else {
             last_volume = parseFloat(($('#control-volume-range').val()/100)).toFixed(1);
-            video.volume = 0
+            video.volume = 0;
             $('#control-volume-range').val(0);
             $('#control-volume-btn').find('i').removeClass().addClass('fa fa-volume-off');
         }
