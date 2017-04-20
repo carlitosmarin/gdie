@@ -2,7 +2,7 @@ var last_volume = 0;
 
 function init_video_controls () {
     video.addEventListener('loadedmetadata', function() {
-        $('#duration').text(get_normalized_time(video.duration))
+        $('#duration').text(get_normalized_time(video.duration));
         $('#filter-btn').prop("disabled", false);
     });
 
@@ -13,18 +13,14 @@ function init_video_controls () {
 
     // Play/Pause Button
     $('#control-play').click(function () {
-        if (video.paused || video.ended) {
-            $('#control-play').find('i').removeClass('fa-play').addClass('fa-pause')
-            video.play();
-        } else {
-            $('#control-play').find('i').removeClass('fa-pause').addClass('fa-play')
-            video.pause();
-        }
+        $('#control-play').find('i').toggleClass('fa-play fa-pause');
+        if (video.paused || video.ended) video.play();
+        else video.pause();
     });
 
     // Stop Button
     $('#control-stop').click(function () {
-        $('#control-play').find('i').removeClass('fa-pause').addClass('fa-play')
+        $('#control-play').find('i').removeClass('fa-pause').addClass('fa-play');
         video.pause();
         video.currentTime = 0;
     });
@@ -63,12 +59,6 @@ function init_video_controls () {
         $('#actual-time').text(get_normalized_time(video.currentTime))
     });
 
-    // Allow shortcuts from the keyboard when hovering the video frame
-    $('#video-container').hover(
-        function () { document.addEventListener('keyup', doc_keyUp, false);
-        },	function () { document.removeEventListener('keyup', doc_keyUp, false);
-        });
-
     /*
      Change the speeds of the video. https://www.w3schools.com/tags/av_prop_playbackrate.asp
      · 0.5 is half speed (slower)
@@ -78,7 +68,7 @@ function init_video_controls () {
     $('#control-vel-0, #control-vel-1, #control-vel-2').click(function () {
         video.playbackRate = $(this).attr('vel');
         $('#collapseVelocimeter .well .btn').removeClass('active-vel');
-        $('#control-vel-'+($(this).attr('vel') == 0.5 ? '0' : $(this).attr('vel'))).addClass('active-vel');
+        $('#control-vel-'+($(this).attr('vel') === 0.5 ? '0' : $(this).attr('vel'))).addClass('active-vel');
     });
 
     //  If you want open another collapse panel, the others will hide
@@ -105,25 +95,6 @@ function init_video_controls () {
     });
 }
 
-// The Keyboard SHORTCUTS to improve the UX
-function doc_keyUp (e) {
-    if (e.ctrlKey) {
-        if (e.keyCode === 32) $('#control-play').click(); 									// SPACEBAR: Play/Pause
-        else if (e.keyCode === 39) null								// ->: Next chapter TDO
-        else if (e.keyCode === 37) null 								// <-: Last chapter TDO
-        else if (e.keyCode >= 48 && e.keyCode <= 57) update_position(e.key)					// 0-9: Change current position
-        else if (e.keyCode === 70) $('#control-expand').click(); 							// F: Full-screen
-        else if (e.keyCode === 76) $('#lights-off').click(); 								// L: Lights
-        else if (e.keyCode === 77) $('#control-volume-mute').click(); 						// M: Mute
-        else if (e.keyCode === 187 || e.keyCode === 191) {									// +: More volume 	-: Less volume
-            var actual_sound = parseInt($('#control-volume-range').val())
-            $('#control-volume-range').val((e.keyCode === 187) ? actual_sound + 10 : actual_sound - 10)
-            if (!$('#collapseVolume').hasClass('in')) $('#control-volume-btn').click();
-            update_volume()
-        }
-    }
-}
-
 function update_position (value) {
     video.currentTime = (value*video.duration)/10;
 }
@@ -136,12 +107,11 @@ function update_volume () {
 }
 
 function get_normalized_time (totalSeconds) {
-    hours = Math.floor(totalSeconds / 3600);
+    var hours = Math.floor(totalSeconds / 3600);
     totalSeconds %= 3600;
-    minutes = Math.floor(totalSeconds / 60);
-    seconds = totalSeconds % 60;
-    seconds = seconds.toFixed(0)
-    if (seconds.length == 1) seconds = '0' + seconds;
+    var minutes = Math.floor(totalSeconds / 60);
+    var seconds = (totalSeconds % 60).toFixed(0);
+    if (seconds.length === 1) seconds = '0' + seconds;
     if (minutes < 9) minutes = '0' + minutes;
 
     return ((hours > 0) ? hours + ':' : '') + ((minutes > 0) ? minutes + ':' : '00:') + seconds

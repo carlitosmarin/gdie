@@ -1,5 +1,4 @@
-navigator.getUserMedia = navigator.getUserMedia ||
-    navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+var videoUser = null;
 
 var constraints = {
     video: true,
@@ -8,15 +7,20 @@ var constraints = {
 
 function successCallback(localMediaStream) {
     window.stream = localMediaStream; // stream available to console
-    var video = document.getElementById("video-user-video");
-    video.src = window.URL.createObjectURL(localMediaStream);
-    video.play();
+    videoUser = document.getElementById("video-user-video");
+    videoUser.src = window.URL.createObjectURL(localMediaStream);
+    videoUser.play();
+
+    videoUser.ontimeupdate = function () {
+        updateCanvasVideo();
+    };
 }
 
 function errorCallback(error){
     console.log("navigator.getUserMedia error: ", error);
 }
 
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 function initWebRTC() {
     navigator.getUserMedia(constraints, successCallback, errorCallback);
 }

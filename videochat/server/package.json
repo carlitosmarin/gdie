@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server to hold websocket connections",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon ./server.js localhost 8080",
+    "test": "npm start",
+    "debug": "node server.js -d"
+  },
+  "keywords": [
+    "server",
+    "websocket"
+  ],
+  "author": "Carlos Marin",
+  "license": "ISC",
+  "dependencies": {
+    "http": "0.0.0",
+    "websocket": "^1.0.24"
+  }
+}

@@ -8,8 +8,9 @@ body {
     font-size: 8px;
 
     background: url(../images/background.jpg) no-repeat;
-    background-size: cover;
-    background-position: 0 50px;
+    background-size: auto 100vh;
+    background-position: top center;
+    background-attachment: fixed;
     z-index: 400;
 
     /* Fixed Navbar */
@@ -358,4 +359,17 @@ textarea {
     border: 1px solid black;
     width: 200px;
     height: 150px;
+}
+
+#request-helpdesk:before {
+    content: 'Connect to '
+}
+
+#list-help-users li.gold-back {
+    background: #ffd700;
+}
+
+#list-help-users li.disabled-user {
+    background-color: #555;
+    cursor: not-allowed;
 }
