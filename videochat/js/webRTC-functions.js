@@ -9,6 +9,7 @@ function successCallback(localMediaStream) {
     window.stream = localMediaStream; // stream available to console
     videoUser = document.getElementById("video-user-video");
     videoUser.src = window.URL.createObjectURL(localMediaStream);
+    costume.src = 'images/costumes/'+($('#request-helpdesk').attr('data-name')).toLowerCase()+'.png';
     videoUser.play();
 
     videoUser.ontimeupdate = function () {
