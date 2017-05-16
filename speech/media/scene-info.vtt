@@ -1,0 +1,31 @@
+WEBVTT FILE
+
+scene-0
+00:00:00.000 --> 00:00:08.000
+{
+"title": "Intro",
+"description": "HBO Entertainment",
+"place": "The Known World",
+"tags": "",
+"characters": "George R. R. Martin"
+}
+
+scene-1
+00:00:01.000 --> 00:00:10.000
+{
+'title': 'Beyond the Wall',
+'description': 'Three rangers of the Night's Watch: Ser Waymar Royce, Will, and Gared depart from the Wall to investigate reports of wildlings in the Haunted Forest which lies to the north, Beyond the Wall. Will, the best scout in the group, discovers a number of wildling corpses dismembered and arranged in a strange, ritualistic fashion on the ground. He also finds a dead wildling girl pinned to a tree.',
+'place': 'Castle Black',
+'tags': 'White Walker, Castle Black',
+'characters': '',
+}
+
+scene-2
+00:00:11.000 --> 00:00:20.000
+{
+'title': 'Beyond the Wall',
+'description': 'Three rangers of the Night's Watch: Ser Waymar Royce, Will, and Gared depart from the Wall to investigate reports of wildlings in the Haunted Forest which lies to the north, Beyond the Wall. Will, the best scout in the group, discovers a number of wildling corpses dismembered and arranged in a strange, ritualistic fashion on the ground. He also finds a dead wildling girl pinned to a tree.',
+'place': 'Castle Black',
+'tags': 'White Walker, Castle Black',
+'characters': '',
+}

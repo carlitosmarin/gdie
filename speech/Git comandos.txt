@@ -1,0 +1,139 @@
+	git init 	: marca el inicio del proyecto
+	git comando -h: ayuda del comando
+-untracked : el cambio no esta registrado
+-staged : cambios listos para ser commiteados
+
+-construir alias atajaos en git
+	git config --global alias.lodag 'log --oneline --decorate --all --graph'
+		unstage : revertir cambio ADDeado
+
+	git config --global --get-regexp alias recuperar ajustas que coincidan con experesion regular siguiente
+
+	git config --global --unset alias.lodag
+
+
+	Git add -A 	: Agregar todo
+
+	git diff						: Ver los cambios que se han llevado al staged area
+	git diff <commit 1> <commit 2> 	: muestra las diferencias de los 2 commits
+	git diff HEAD~1 HEAD 			: lo de antes entre ultimo commit - 1 y HEAD
+
+	git log 						: Registro de commits "codigo para identificar el commit"
+	git log --oneline 				: una linea por commit
+	git log --oneline --decorate 	: muestra los punteros tambien
+	git log --oneline --decorete --graph
+	git log --all 					: ver los commits de todas las ramas
+
+-ELIMINAR CAMBIOS
+	git checkout -- <archivo>	: deshacer cambios de archivos que estan en el untracked
+	git reset HEAD <archivo> 	: deshacer cambios de archivos que estan en staged area (despues de un ADD) los devuelve a untracked y luego se hace checkout --
+
+	git checkout <code>			: copiar el codigo del commit y viajar a esa versión
+	git checkout master 		: viajar al ultimo commit registrado
+
+	git reset <commit> 			: deshace el contenido del commit lo destruye, y vuelve al anterior y deja los cambios en staged. Hay que tener mucho cuidado
+	git reset --soft <code> 	: Deja los cambios en el staged, sirve para modificar un commit hecho, y añadir o borrar archivos. Borra los commits mas recientes
+								que el destino, pero no toca el codigo, y los cambios quedan por confirmar
+
+	git reset --mixed <code> 	: borra el "stading area" sin borrar el working area [NO SE USA]
+	git reset --hard <code> 	: borra el staged, y borra el codigo, todo porsterior de la versión de la que se va.
+
+-HEAD : commit puntero al commit mas reciente
+
+	git revert HEAD				: revierte los cambios del ultimo commit, las lineas en rojo las vuelve a poner y las verdes las quita. y crea un commit de eso
+	git revert  --no-commit HEAD: no crea commit despues del reverte, y si haces varios al final pones git revert --continue y crea un commit
+	git revert --continue		: acaba el reverte y crea el commit
+
+-Añadir informacion al commit hecho
+	git add archivo
+	git commit --amend : añadir información extra al ultimo commit
+
+-head : es el commit donde nosotros estamos actualmente
+-rama Master : rama principal del repositorio
+
+-BRANCHES - RAMAS
+-fiuter branch : cuando se quiere agregar una caracteristica se va a una rama nueva. Master siempre limpio
+	git checkout rama 		: para cambiar de rama
+	git checkout -b test 	: crea y muevete a la rama test
+	git branch 				: muestra las ramas
+	gir branch -m    		: renombrar rama
+	git branch <name_rama> 	: crea una nueva rama
+	git branch -d 			: borrar ramas
+	git merge rama_testeo	: absorber rama seleccionada desde la que estoy
+	git merge --abort		: aborta un merge por si lo has liado
+
+-Fast-Foward: fusión automática, sin preguntas  mueve el puntero HEAD al commit que añade cambios nuevos
+-Manual Merge: revisar los cambios a realizar en el codigo
+	-Conflicto:
+		<<<HEAD (primer commit)
+		======
+		>>>>> (rama secundaria commit 2)
+		git add -> git commit
+
+-GITHUB
+-Repositorio remoto (GitHub-origin) y local (PC): == proyecto de programacion
+
+-moverse en la carpeta donde queremos clonar y:
+	git clone <HTTPS>				: copia un proyecto de github en nuestro ordenador. es una copia no se puede contribuir en el
+	git remote add origin <HTTPS> 	: vincula el repositorio local con el repositorio de GitHub
+	git remote -v 					: ver si el repositorio local tiene enlace al remoto
+	git remote remove origin 		: elimina el enlace que habia del repositorio local  <-> al remoto
+	git push origin master 			: subir al github el repositorio local, si queremos otra rama cambiamos el master
+	git push -f origin <branch>		: fuerza a actualizar el repositorio remoto aun que se pierdan commint
+
+-Para subir a github el contenido de una rama local, se junta en el local y se sube al remoto fusionada
+
+-Issues: cosas pendientes, cosas que mejorar del proyecto, tu puedes dejar como anotacion
+-Miletones	: 	son Grupos de issues que se aplican en el proyecto.
+-Labels		:	son una manera de organizar tipos de problemas etiquedas de problemas
+-tags		: 	Añadir versionado al codigo, cada tag es una versión
+
+	git tag v0.1 <hash commit>
+	git tag -a v1.0 -m "Version 1.0"
+	git tag -a v1.0 -m "Version 1.0" <codigo commit>
+
+	git push origin --tags	:subir todos los tags a github
+	git push origin V1.0 	:subir un tag especifico
+
+-Workflows	:  flujo de trabajo (propio o en equipo)
+	-Proyecto propio
+	-Proyecto coloborativo
+
+	-Existe una rama oculta origin/master en el repositorio remoto
+		git branch -a :	Muestra tambien las ramas ocultas
+
+	-Pasos que se siguien cuando uno hace cambios y otro se los baja
+	- remoto/Master [GitHub]
+		git fetch origin : 	descarga los cambios del repositorio remoto a origin/master
+	- origin/master [Oculta]
+		git merge origin/master : estando en la ramas local/master absorbemos los cambios de origin/master
+	- local/Master [PC]
+
+	-despues se sube al GitHub con
+		git push origin master
+
+Pasos que se siguiente cuando los 2 hacen cambios y hay que actualizar el master:
+	Si hay cambios en GitHub y tu no te los bajaste antes, no te dejara subir al repositorio remoto de github primero se tendran que bajar esos cambios
+	1ro git fetch origin 	: bajarse los cambios
+	2do git merge origin/master : Absorber los cambios pero no puede ser automatico ya que en el local se ha modificado lo mismo
+	- Git marca los conflictos dentro del codigo se quita lo que sobra luego add, commit, y push
+
+Proyectos con terceros: contribuir en un codigo que no es tuyo
+	-fork hace un clon del repositorio master a diferencia del clone, el fork lo pasa a nuestros repositorios diciendo que es un fork el original
+	-clone sirve para ver el proyecto, el fork sirve para hacer modificaciones de codigo que no es el tuyo, y no repercute en la organizacion
+
+	Es decir tu haces un clon en tu repositorio de github del proyecto de la organización, luego lo clonas en tu ordenador, y los cambios que haces en el ordenador se aplicaran en la copia que tienes en tus repositorios
+	- upstream/Master
+		git fech upstream 	: puede variar el nombre es bajarse los cambios del repositorio de la organizacion.
+	- remoto/Master [GitHub]
+		git fetch origin : 	descarga los cambios del repositorio remoto a origin/master
+	- origin/master [Oculta]
+		git merge origin/master : estando en la ramas local/master absorbemos los cambios de origin/master
+	- local/Master [PC]
+
+	dentro de GitHub: es hacer un pull request
+
+	GIT HOOKS
+	.git :archivo oculto que tienen todo lo de git
+	crear el hook
+		touch post-commit
