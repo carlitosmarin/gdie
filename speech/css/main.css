@@ -181,6 +181,8 @@ footer {
 }
 
 #character-filter {
+	object-fit: cover;
+	border: 1px solid #CCC;
 	width: 90px;
 	height: 90px;
 	margin: 0 auto;
@@ -399,9 +401,18 @@ video::-webkit-media-controls {
 	border: 1px solid black;
 }
 
-#lights-off, #commands-help {
+.nav.navbar-nav.navbar-right li {
+	cursor: pointer;
+}
+
+.nav.navbar-nav.navbar-right li a i {
 	font-size: 20px;
 	cursor: pointer;
+	padding: 0 15px;
+}
+
+#male-siri:hover, #female-siri:hover, .nav.navbar-nav.navbar-right li.selected {
+	background: #DDD;
 }
 
 .char-info {
@@ -511,10 +522,85 @@ input[type=range] {
 
 #scene-description {
 	font-size: 10px;
+	overflow-y: scroll;
+	height: 120px;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	padding: 10px;
 }
 
-#video-controls.full-screen {
-	position: absolute;
-	bottom: 0;
-	z-index: 99999999999999999;
+#siri-btn {
+	cursor: pointer;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 1000;
+	width: 90px;
+	height: 90px;
+	text-align: center;
+	border-radius: 45px;
+	background: #F0E68C;
+	border: 2px solid #FFD700;
+	transition: background .2s ease-in-out;
+	box-shadow: 2px 5px 10px rgba(0,0,0,1);
+}
+
+#siri-btn:hover {
+	background: #FFD700;
+	border: 2px solid #F0E68C;
+	animation: siri-hover 2s infinite;
+}
+
+@keyframes siri-hover {
+	33% {  transform: rotate(-20deg);  }
+	66% {  transform: rotate(20deg);  }
+	99% {  transform: rotate(0);  }
+}
+
+#siri-btn a {
+	font-size: 50px;
+	line-height: 80px;
+}
+
+#siri-btn a i {
+	color: #333;
+}
+
+#voice-ratio {
+	background: url(../images/wavy.gif);
+	background-size: contain;
+	width: 0;
+	height: 90px;
+	position: fixed;
+	right: 70px;
+	bottom: 20px;
+	border: none;
+	z-index: 1;
+	border-top-left-radius: 40px;
+	border-bottom-left-radius: 40px;
+	transition: all .3s ease;
+	box-shadow: 2px 5px 10px rgba(0,0,0,1);
+}
+
+#voice-ratio.ratio-visible {
+	width: 300px;
+	border: 2px solid #FFD700;
+}
+
+#video-tag {
+	transition: all .5s ease-in-out;
+}
+
+body.night-mode #video-tag {
+	transform: scale(1.5) translateX(11vw);
+}
+
+body.night-mode #video-controls {
+	transform: scale(1.5) translateX(11vw) translateY(5vh) !important;
+}
+
+.list-item {
+	font-size: 13px;
+	padding-bottom: 5px;
+	cursor: pointer;
 }

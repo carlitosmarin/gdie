@@ -43,6 +43,9 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li id="male-siri" class="selected"><a><i class="fa fa-male"></i></a></li>
+                    <li id="female-siri"><a><i class="fa fa-female"></i></a></li>
+                    <li><a data-toggle="modal" data-target="#modal-siri"><i class="fa fa-microphone"></i></a></li>
                     <li id="lights-off"><a><i class="fa fa-moon-o"></i></a></li>
                     <li id="commands-help" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-question-circle"></i></a>
@@ -74,19 +77,19 @@
                                 <div class="col-md-5">
                                     <label>By house:</label>
                                     <div id="houses-background">
-                                        <figure family="stark">
+                                        <figure>
                                             <img class="every-house" src="./images/stark.png"/>
                                             <figcaption>Stark</figcaption>
                                         </figure>
-                                        <figure family="lannister">
+                                        <figure>
                                             <img class="every-house" src="./images/lannister.png"/>
                                             <figcaption>Lannister</figcaption>
                                         </figure>
-                                        <figure family="baratheon">
+                                        <figure>
                                             <img class="every-house" src="./images/baratheon.png"/>
                                             <figcaption>Baratheon</figcaption>
                                         </figure>
-                                        <figure family="targaryen">
+                                        <figure>
                                             <img class="every-house" src="./images/targaryen.png"/>
                                             <figcaption>Targaryen</figcaption>
                                         </figure>
@@ -131,7 +134,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-md-2"><button id="filter-btn" type="button"class="btn btn-default pull-right" disabled>Filter</button></div>
+                                        <div class="col-md-2"><button id="filter-btn" type="button"class="btn btn-default pull-right">Filter</button></div>
                                         <div class="col-md-2"><button id="remove-filter-btn" type="button" class="btn btn-default pull-right hide">No Filter</button></div>
                                     </div>
                                 </div>
@@ -145,13 +148,14 @@
                     </div>
 
                     <div class="row">
+
                         <div id="video-container" class="col-md-7">
                             <video id="video-tag">
-                                <source src="../../chapter.mp4" type="video/mp4" />
-                                <track src="./media/scene-info-test.vtt" kind="metadata" srclang="en" label="Scene info" default/>
-                                <track src="./media/ESsubs.vtt" kind="subtitles" srclang="es" label="Spanish" />
-                                <track src="./media/ENsubs.vtt" kind="subtitles" srclang="en" label="English"  />
-                                <track src="./media/JAsubs.vtt" kind="subtitles" srclang="ja" label="Japanese"  />
+                                <source src="media/chapter1.mp4" type="video/mp4"/>
+                                <track src="media/scene-info-test.vtt" kind="metadata" srclang="en" label="Scene info" default/>
+                                <track src="media/ESsubs.vtt" kind="subtitles" srclang="es" label="Spanish" />
+                                <track src="media/ENsubs.vtt" kind="subtitles" srclang="en" label="English"  />
+                                <track src="media/JAsubs.vtt" kind="subtitles" srclang="ja" label="Japanese"  />
                             </video>
 
                             <div id="video-controls">
@@ -253,9 +257,9 @@
                         <!-- Scene information -->
                         <div id="scene-information-panel" class="col-md-5">
                             <h4 id="scene-title">Scene</h4>
-                            <p id="scene-description">Description</p>
-                            <h5>Place: <small id="scene-place">Place</small></h5>
-                            <h5>From: <small id="scene-time0">time0</small> - To: <small id="scene-time1">time1</small></h5>
+                            <p id="scene-description"></p>
+                            <h5>Place: <small id="scene-place"></small></h5>
+                            <h5>From: <small id="scene-time0"></small> - To: <small id="scene-time1"></small></h5>
                             <h4>Screenshots</h4>
                             <div id="screenshots-panel"></div>
 
@@ -294,6 +298,36 @@
 
     <div id="turn-off" class="lights-out"></div>
 
+    <div id="siri-btn">
+        <a><i class="fa fa-microphone"></i></a>
+    </div>
+    <div id="voice-ratio"></div>
+
+    <div id="modal-siri" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3>Siri Commands list</h3>
+                    <ul>
+                        <li class="list-item"><a onclick="processOrderModal('play vide')">Play video</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('saca una foto')">Saca una foto</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('siguiente escena')">Siguiente escena</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('escena anterior')">Escena anterior</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('que hora es')">Que hora es?</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('que dia es')">Que dia es?</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('ves al minuto 5')">Ves al minuto X (5)</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('cuanto es 3 mas 2')">Operacion matematica (3+2)</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('lee descripcion')">Lee descripción</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('ves al chat')">Ir al chat (práctica 2)</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('cuenta un chiste')">Cuenta un chiste</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('me quieres')">Me quieres</a></li>
+                        <li class="list-item"><a onclick="processOrderModal('cuentame otro')">Cuentame otro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- End Document
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="js/jquery.min.js"></script>
@@ -304,5 +338,7 @@
     <script src="js/canvas-functions.js"></script>
     <script src="js/filter-functions.js"></script>
     <script src="js/track-functions.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/speech-functions.js"></script>
 </body>
 </html>

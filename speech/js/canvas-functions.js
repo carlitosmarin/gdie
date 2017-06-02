@@ -60,7 +60,7 @@ function init_canvas_functions () {
 	$('#share-in a').click(function () {
 		$('#feedback-shared').text('')
 		if ($(this).context.id == 'cancel') $('#save-screenshot').modal('hide');
-		else if ($(this).context.id != 'save-as-file'){
+		else {
 			$('#feedback-shared').text('Shared on ' + $(this).context.id.split('-')[2])
 			setTimeout(function(){
 				$('#save-screenshot').modal('hide');
@@ -91,7 +91,6 @@ function load_canvas_snapshot () {
 }
 
 function download() {
-	alert('voy a guardarlo')
 	var canvas = document.getElementById('main-screenshot')
     var dt = canvas.toDataURL('image/jpeg');
     downloadLnk.download = 'scene-filter.jpg'

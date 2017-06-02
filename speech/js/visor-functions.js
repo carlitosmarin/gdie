@@ -11,16 +11,18 @@ function init_video_controls () {
 	    $('#control-stop').click()
 	};
 
-	// Play/Pause Button
-	$('#control-play').click(function () {
-		if (video.paused || video.ended) {
-			$('#control-play').find('i').removeClass('fa-play').addClass('fa-pause')
-			video.play();
-		} else {
-			$('#control-play').find('i').removeClass('fa-pause').addClass('fa-play')
-			video.pause();
-		}
-	})
+    // Play/Pause Button
+    $('#control-play').click(function () {
+        if (video.paused || video.ended) {
+            $('#control-play').find('i').removeClass('fa-play').addClass('fa-pause')
+            video.play();
+            speak('Play video');
+        } else {
+            $('#control-play').find('i').removeClass('fa-pause').addClass('fa-play')
+            video.pause();
+            speak('Pause video');
+        }
+    });
 
 	// Stop Button
 	$('#control-stop').click(function () {
@@ -48,14 +50,9 @@ function init_video_controls () {
 
 	// Full Screen Button
 	$('#control-expand').click(function () {
-		if (video.mozRequestFullScreen) {
-			video.mozRequestFullScreen();
-			$('#video-controls').addClass('full-screen');
-		} else if (video.webkitRequestFullScreen) {
-			video.webkitRequestFullScreen();
-			$('#video-controls').addClass('full-screen');
-		}
-	});
+		if (video.mozRequestFullScreen)  video.mozRequestFullScreen();
+		else if (video.webkitRequestFullScreen)  video.webkitRequestFullScreen();
+	})
 
 	// Every time that changes the current time of the video
 	$('#video-tag').bind('timeupdate', function () {
@@ -108,7 +105,9 @@ function init_video_controls () {
 
 	// When you click over the slider, you will be redirected to that specific time
     $("#actual-progress").slider({
-		slide: function(event, ui) { video.currentTime = (ui.value * video.duration)/100 }
+		slide: function(event, ui) {
+			video.currentTime = parseInt((ui.value * video.duration)/100);
+		}
 	});
 
 	// When you unhover the video-container, the opened collapse will hide
@@ -118,20 +117,39 @@ function init_video_controls () {
 
 	// Before showing the modal to apply filters, we restart the variables
 	$('#control-screenshot').click(function () {
-		$('#main-screenshot').attr('actual-filter', 'none').attr('actual-value', 0)
-		$('#filter-sepia, #filter-grayscale, #filter-invert, #filter-contrast').attr('value', 100)
-		$('#filter-blur').attr('value', 2)
-		$('#filter-none').click()
+		$('#main-screenshot').attr('actual-filter', 'none').attr('actual-value', 0);
+		$('#filter-sepia, #filter-grayscale, #filter-invert, #filter-contrast').attr('value', 100);
+		$('#filter-blur').attr('value', 2);
+		$('#filter-none').click();
 		$('#modal-screenshot').modal('show');
-	})
+        speak('Aplica estilos a la imagen y compártela!');
+    });
+
+	$('#control-fast-forward').click(function () {
+		var actualCue = getActualTrack();
+		var nextCue = parseInt(actualCue.id.split('-')[1]) + 1;
+		if (nextCue < 5) video.currentTime = video.textTracks[0].cues[nextCue].startTime;
+		else video.currentTime = video.duration;
+	});
+
+	$('#control-fast-backward').click(function () {
+		var actualCue = getActualTrack();
+		var nextCue = parseInt(actualCue.id.split('-')[1]) - 1;
+		if (nextCue > 0) video.currentTime = video.textTracks[0].cues[nextCue].startTime;
+		else video.currentTime = 0;
+	});
+}
+
+function getActualTrack () {
+	return video.textTracks[0].activeCues[0];
 }
 
 // The Keyboard SHORTCUTS to improve the UX
 function doc_keyUp (e) {
  	if (e.ctrlKey) {
  		if (e.keyCode == 32) $('#control-play').click(); 									// SPACEBAR: Play/Pause
- 		else if (e.keyCode == 39) null								// ->: Next chapter TDO
-		else if (e.keyCode == 37) null 								// <-: Last chapter TDO
+ 		else if (e.keyCode == 39) $('#control-fast-forward').click();						// ->: Next chapter TDO
+		else if (e.keyCode == 37) $('#control-fast-backward').click();						// <-: Last chapter TDO
  		else if (e.keyCode >= 48 && e.keyCode <= 57) update_position(e.key)					// 0-9: Change current position
  		else if (e.keyCode == 70) $('#control-expand').click(); 							// F: Full-screen
  		else if (e.keyCode == 76) $('#lights-off').click(); 								// L: Lights

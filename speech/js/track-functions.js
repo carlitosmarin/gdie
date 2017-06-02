@@ -41,7 +41,7 @@ function load_characters (info) {
 	})
 	.done(function(data) {
 		$('#characters-panel').empty()
-		var character_list = info.characters.split(', ')
+		var character_list = info.characters.split(',')
 		for (var i = 0; i < character_list.length; i++) {
 			for (var j = 0; j < data.length; j++) {
 				if (character_list[i] == data[j].name) {
@@ -66,7 +66,7 @@ function load_tags (info) {
 }
 
 function load_screenshots (activeCue) {
-	var screenshots = 5
+	var screenshots = 2
 	var time0 = activeCue.startTime
 	var interval = (activeCue.endTime - time0)
 	if (interval < 30) screenshots = 1
@@ -75,5 +75,6 @@ function load_screenshots (activeCue) {
 	for (var i = 0; i < screenshots; i++) {
 		$('#screenshots-panel').append('<figure><img class="screenshot" src="./images/screenshots/'+parseInt(time0)+'.png" onclick="javascript:video.currentTime='+parseInt(time0)+'"/><figcaption>'+get_normalized_time(time0)+'</figcaption></figure>')
 		time0 += interval
+
 	}
 }

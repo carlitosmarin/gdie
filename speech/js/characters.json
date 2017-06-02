@@ -1,15 +1,54 @@
 [{
-	"name": "Jon Snow",
+	"name": "snow",
 	"description": "In A Game of Thrones, Jon Snow is introduced as the 14-year-old bastard son of Eddard 'Ned' Stark, Lord of Winterfell, and half-brother to Robb, Sansa, Arya, Bran and Rickon",
 	"wikipedia": "https://en.wikipedia.org/wiki/Jon_Snow_(character)",
 	"imdb": "http://www.imdb.com/character/ch0155777/",
-	"image": "Snow",
+	"image": "snow",
 	"data_char": "jon"
 }, {
-	"name": "Jon Snow",
-	"description": "In A Game of Thrones, Jon Snow is introduced as the 14-year-old bastard son of Eddard 'Ned' Stark, Lord of Winterfell, and half-brother to Robb, Sansa, Arya, Bran and Rickon",
-	"wikipedia": "https://en.wikipedia.org/wiki/Jon_Snow_(character)",
-	"imdb": "http://www.imdb.com/character/ch0155777/",
-	"image": "Snow",
-	"data_char": "jon"
-}]
+	"name": "eddard",
+	"description": "In A Game of Thrones (1996), Ned Stark is introduced as the virtuous and honorable patriarch of House Stark and the father of six children. The moral compass of the story, he is content to remain far from courtly intrigues[5] and is unwavering in his view of loyalty and honor.",
+	"wikipedia": "https://en.wikipedia.org/wiki/Ned_Stark",
+	"imdb": "http://www.imdb.com/character/ch0154681/",
+	"image": "eddard",
+	"data_char": "Eddard"
+},{
+	"name": "arya",
+	"description": "Arya is the third child and younger daughter of Eddard and Catelyn Stark. She has four siblings: an older brother, Robb, two younger brothers Bran and Rickon, and an older sister, Sansa. She grew up with Jon Snow, whom she assumed was her illegitimate half-brother although he is actually her cousin.",
+	"wikipedia": "https://en.wikipedia.org/wiki/Arya_Stark",
+	"imdb": "http://www.imdb.com/character/ch0158604/",
+	"image": "arya",
+	"data_char": "Arya"
+},{
+	"name": "robb",
+	"description": "Robb is fourteen years old at the beginning of A Game of Thrones (1996). He is the eldest son of Eddard Ned Stark and his wife Catelyn, and has five siblings: Sansa, Arya, Bran, Rickon, and the illegitimate half-brother Jon Snow. Robb is constantly accompanied by his direwolf, Grey Wind.",
+	"wikipedia": "https://en.wikipedia.org/wiki/Robb_Stark",
+	"imdb": "http://www.imdb.com/character/ch0158596/",
+	"image": "robb",
+	"data_char": "Robb"
+},{
+	"name": "theon",
+	"description": "Theon Greyjoy is the only living son, and heir apparent of Balon Greyjoy. He is the third-person narrator for thirteen chapters throughout A Clash of Kings and A Dance with Dragons. He is initially arrogant, cocky, and proud, but becomes more fragile after being tortured by Ramsay Snow.",
+	"wikipedia": "https://en.wikipedia.org/wiki/Theon_Greyjoy",
+	"imdb": "http://www.imdb.com/character/ch0158526/",
+	"image": "theon",
+	"data_char": "Theon"
+},{
+	"name": "bran",
+	"description": "Bran is seven years old at the beginning of A Game of Thrones (1996). He is the second son of Eddard Ned Stark and his wife Catelyn, and has five siblings: Robb, Sansa, Arya, Rickon, and the illegitimate Jon Snow. Bran is constantly accompanied by his direwolf, Summer. Martin describes Bran as favoring his mother in appearance, having the thick auburn hair and deep blue eyes of the Tullys",
+	"wikipedia": "https://en.wikipedia.org/wiki/Bran_Stark",
+	"imdb": "http://www.imdb.com/character/ch0234897/",
+	"image": "bran",
+	"data_char": "Bran"
+},{
+	"name": "tyrion",
+	"description": "In A Game of Thrones (1996), Tyrion is introduced as the third and youngest child of wealthy and powerful Tywin Lannister, the former Hand of the King, and Joanna Lannister, who dies giving birth to him",
+	"wikipedia": "https://en.wikipedia.org/wiki/Tyrion_Lannister",
+	"imdb": "http://www.imdb.com/character/ch0146096/",
+	"image": "tyrion",
+	"data_char": "Tyrion"
+}
+
+
+
+]

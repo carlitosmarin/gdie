@@ -5,27 +5,51 @@ scene-0
 {
 "title": "Intro",
 "description": "HBO Entertainment",
-"place": "The Known World",
+"place": "",
 "tags": "",
-"characters": "George R. R. Martin"
+"families": "",
+"characters": "snow"
 }
 
 scene-1
-00:00:10.000 --> 00:00:11.000
+00:00:10.000 --> 00:07:15.000
 {
 "title": "Beyond the Wall",
-"description": "Three rangers of the Night's Watch: Ser Waymar Royce, Will, and Gared depart from the Wall to investigate reports of wildlings in the Haunted Forest which lies to the north, Beyond the Wall. Will, the best scout in the group, discovers a number of wildling corpses dismembered and arranged in a strange, ritualistic fashion on the ground. He also finds a dead wildling girl pinned to a tree.",
+"description": "Tres guardias de la Guardia de la Noche: Ser Waymar Royce, Will y Gared se apartan del Muro para investigar informes de salvajes en el Bosque Encantado que se encuentra al norte, Más allá del Muro. Will, el mejor explorador del grupo, descubre una serie de cadáveres salvajes desmembrados y arreglados de una manera extraña y ritual en el suelo. Él también encuentra a una muchacha salvaje muerta fijada a un árbol.",
 "place": "Castle Black",
 "tags": "White Walker, Castle Black",
-"characters": "Jon Snow, Pepe Gotera"
+"families": "",
+"characters": "snow"
 }
 
 scene-2
-00:00:11.000 --> 00:00:20.000
+00:07:16.000 --> 00:08:57.000
 {
-"title": "Beyond the Wall",
-"description": "Three rangers of the Night's Watch: Ser Waymar Royce, Will, and Gared depart from the Wall to investigate reports of wildlings in the Haunted Forest which lies to the north, Beyond the Wall. Will, the best scout in the group, discovers a number of wildling corpses dismembered and arranged in a strange, ritualistic fashion on the ground. He also finds a dead wildling girl pinned to a tree.",
-"place": "Castle Black",
+"title": "Introducción Juego de tronos",
+"description": "The introducction of game of trones serial",
+"tags": "Intro",
+"families": "Stark,Lannister,Baratheon,Targaryen",
+"characters": ""
+}
+
+scene-3
+00:08:58.000 --> 00:09:40.000
+{
+"title": "Stark Familly",
+"description": "Tres guardias de la Guardia de la Noche: Ser Waymar Royce, Will y Gared se apartan del Muro para investigar informes de salvajes en el Bosque Encantado que se encuentra al norte, Más allá del Muro. Will, el mejor explorador del grupo, descubre una serie de cadáveres salvajes desmembrados y arreglados de una manera extraña y ritual en el suelo. Él también encuentra a una muchacha salvaje muerta fijada a un árbol.",
+"place": "Winterfell",
 "tags": "White Walker, Castle Black",
-"characters": "Jon Snow, Tomas Turbao"
+"families": "Stark",
+"characters": "bran,arya,robb,snow,sansa"
+}
+
+scene-4
+00:12:09.000 --> 00:15:08.000
+{
+"title": "Execution on the north",
+"description": "El proscrito es aprehendido por los otriders leales a la casa Stark, los guardianes del norte, y se lleva a señor Eddard Stark. Eddard lleva a cabo la ejecución él mismo, usando la ancestral hoja valiria de su casa, Ice. Young Bran es testigo de una ejecución por primera vez sin vacilar, ganando elogios de Jon.",
+"place": "Winterfell",
+"tags": "Execution, Ice, another_dead",
+"families": "Stark",
+"characters": "snow,eddard,robb,bran,theon"
 }
